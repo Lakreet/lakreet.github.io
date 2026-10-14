@@ -1,46 +1,116 @@
 <script setup lang="ts">
-import type { Plugin } from '../../data/plugins.json'
+import type { Plugin } from "../../data/plugins.json";
 
 interface Props {
-  plugin: Plugin
+  plugin: Plugin;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
 function getStatusBadge(status: string) {
   const badges: Record<string, { label: string; class: string }> = {
-    stable: { label: 'Stable', class: 'lakreet-badge stable' },
-    experimental: { label: 'Experimental', class: 'lakreet-badge experimental' },
-    planned: { label: 'Planned', class: 'lakreet-badge planned' },
-  }
-  return badges[status] ?? { label: status, class: 'lakreet-badge planned' }
+    stable: { label: "Stable", class: "lakreet-badge stable" },
+    experimental: {
+      label: "Experimental",
+      class: "lakreet-badge experimental",
+    },
+    planned: { label: "Planned", class: "lakreet-badge planned" },
+  };
+  return badges[status] ?? { label: status, class: "lakreet-badge planned" };
 }
 </script>
 
 <template>
-  <article class="lakreet-card" style="display: flex; flex-direction: column; height: 100%;">
-    <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--vp-spacing-3);">
+  <article
+    class="lakreet-card"
+    style="display: flex; flex-direction: column; height: 100%"
+  >
+    <header
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--vp-spacing-3);
+      "
+    >
       <div>
-        <h3 style="margin: 0 0 var(--vp-spacing-1); font-size: 1.125rem;">{{ plugin.name }}</h3>
-        <p style="margin: 0; color: var(--vp-c-text-2); font-size: 0.875rem;">{{ plugin.tagline }}</p>
+        <h3 style="margin: 0 0 var(--vp-spacing-1); font-size: 1.125rem">
+          {{ plugin.name }}
+        </h3>
+        <p style="margin: 0; color: var(--vp-c-text-2); font-size: 0.875rem">
+          {{ plugin.tagline }}
+        </p>
       </div>
-      <span :class="getStatusBadge(plugin.status).class">{{ getStatusBadge(plugin.status).label }}</span>
+      <span :class="getStatusBadge(plugin.status).class">{{
+        getStatusBadge(plugin.status).label
+      }}</span>
     </header>
 
-    <dl style="margin: 0 0 var(--vp-spacing-3); font-size: 0.8125rem; color: var(--vp-c-text-2); display: grid; grid-template-columns: auto 1fr; gap: var(--vp-spacing-1) var(--vp-spacing-3);">
+    <dl
+      style="
+        margin: 0 0 var(--vp-spacing-3);
+        font-size: 0.8125rem;
+        color: var(--vp-c-text-2);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--vp-spacing-1) var(--vp-spacing-3);
+      "
+    >
       <dt>Version</dt>
-      <dd style="margin: 0;">{{ plugin.version }}</dd>
+      <dd style="margin: 0">{{ plugin.version }}</dd>
       <dt>Category</dt>
-      <dd style="margin: 0;">{{ plugin.category }}</dd>
+      <dd style="margin: 0">{{ plugin.category }}</dd>
     </dl>
 
-    <div style="display: flex; flex-wrap: wrap; gap: var(--vp-spacing-1); margin-bottom: var(--vp-spacing-3);" aria-label="Tags">
-      <span v-for="tag in plugin.tags" :key="tag" class="lakreet-badge planned" style="font-size: 0.6875rem; text-transform: uppercase;">{{ tag }}</span>
+    <div
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--vp-spacing-1);
+        margin-bottom: var(--vp-spacing-3);
+      "
+      aria-label="Tags"
+    >
+      <span
+        v-for="tag in plugin.tags"
+        :key="tag"
+        class="lakreet-badge planned"
+        style="font-size: 0.6875rem; text-transform: uppercase"
+        >{{ tag }}</span
+      >
     </div>
 
-    <footer style="display: flex; gap: var(--vp-spacing-3); margin-top: auto; padding-top: var(--vp-spacing-3); border-top: 1px solid var(--vp-c-divider);">
-      <a :href="plugin.docs" class="vp-button-brand" style="flex: 1; text-align: center; padding: var(--vp-spacing-2) var(--vp-spacing-3); font-size: 0.8125rem;">Docs</a>
-      <a :href="plugin.repo" class="vp-button-alt" style="flex: 1; text-align: center; padding: var(--vp-spacing-2) var(--vp-spacing-3); font-size: 0.8125rem;">Repo</a>
+    <footer
+      style="
+        display: flex;
+        gap: var(--vp-spacing-3);
+        margin-top: auto;
+        padding-top: var(--vp-spacing-3);
+        border-top: 1px solid var(--vp-c-divider);
+      "
+    >
+      <a
+        :href="plugin.docs"
+        class="vp-button-brand"
+        style="
+          flex: 1;
+          text-align: center;
+          padding: var(--vp-spacing-2) var(--vp-spacing-3);
+          font-size: 0.8125rem;
+        "
+        >Docs</a
+      >
+      <a
+        :href="plugin.repo"
+        class="vp-button-alt"
+        style="
+          flex: 1;
+          text-align: center;
+          padding: var(--vp-spacing-2) var(--vp-spacing-3);
+          font-size: 0.8125rem;
+        "
+        >Repo</a
+      >
     </footer>
   </article>
 </template>
@@ -51,7 +121,9 @@ function getStatusBadge(status: string) {
   border: 1px solid var(--vp-c-divider);
   border-radius: var(--vp-border-radius-md);
   padding: var(--vp-spacing-4);
-  transition: box-shadow var(--vp-transition-normal), border-color var(--vp-transition-fast);
+  transition:
+    box-shadow var(--vp-transition-normal),
+    border-color var(--vp-transition-fast);
 }
 
 .lakreet-card:hover {
@@ -64,7 +136,9 @@ function getStatusBadge(status: string) {
   text-decoration: none;
   border-radius: var(--vp-border-radius-sm);
   font-weight: 500;
-  transition: background-color var(--vp-transition-fast), color var(--vp-transition-fast);
+  transition:
+    background-color var(--vp-transition-fast),
+    color var(--vp-transition-fast);
 }
 
 .vp-button-brand {

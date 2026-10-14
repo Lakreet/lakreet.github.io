@@ -9,7 +9,15 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const docsDir = join(__dirname, "..", "docs");
 const internalDir = join(__dirname, "..", "internal");
 
-const VALID_TYPES = ["tutorial", "how-to", "reference", "explanation", "recipe", "tool", "hub"];
+const VALID_TYPES = [
+  "tutorial",
+  "how-to",
+  "reference",
+  "explanation",
+  "recipe",
+  "tool",
+  "hub",
+];
 const VALID_STATUSES = ["stable", "experimental", "planned"];
 
 let hasErrors = false;
@@ -33,24 +41,24 @@ function parseYamlFrontmatter(yaml) {
   const fm = {};
   let currentKey = null;
   let inVerified = false;
-  
+
   for (const line of yaml.split("\n")) {
     const trimmed = line.trim();
     if (!trimmed) continue;
-    
+
     // Check for top-level key: value
     const match = trimmed.match(/^(\w+):\s*(.*)$/);
     if (match) {
       const key = match[1];
       let value = match[2].trim();
-      
+
       // Handle quoted strings
       if (value.startsWith('"') && value.endsWith('"')) {
         value = value.slice(1, -1);
       } else if (value.startsWith("'") && value.endsWith("'")) {
         value = value.slice(1, -1);
       }
-      
+
       if (key === "verified") {
         inVerified = true;
         fm.verified = {};
@@ -60,7 +68,7 @@ function parseYamlFrontmatter(yaml) {
       }
       continue;
     }
-    
+
     // Handle array items under verified:
     if (inVerified) {
       const verifiedMatch = trimmed.match(/^-\s*(\w+):\s*(.*)$/);
@@ -75,7 +83,7 @@ function parseYamlFrontmatter(yaml) {
       }
     }
   }
-  
+
   return fm;
 }
 
@@ -89,48 +97,61 @@ function readFrontmatter(filePath) {
 
 function checkFile(filePath) {
   const relPath = relative(docsDir, filePath);
-  
+
   // Skip non-markdown files
   if (extname(filePath) !== ".md") return true;
-  
+
   const fm = readFrontmatter(filePath);
-  
+
   // Check if it's a planned page
   const isPlanned = fm?.status === "planned";
-  
+
   // Required frontmatter fields
-  const requiredFields = ["title", "description", "type", "status", "since", "verified"];
+  const requiredFields = [
+    "title",
+    "description",
+    "type",
+    "status",
+    "since",
+    "verified",
+  ];
   if (isPlanned) {
     requiredFields.splice(requiredFields.indexOf("verified"), 1);
     requiredFields.splice(requiredFields.indexOf("since"), 1);
   }
-  
+
   for (const field of requiredFields) {
     if (!fm || !fm[field]) {
       error(`${relPath}: missing required frontmatter field: ${field}`);
       return false;
     }
   }
-  
+
   // Validate type
   if (fm && !VALID_TYPES.includes(fm.type)) {
-    error(`${relPath}: invalid type "${fm.type}". Must be one of: ${VALID_TYPES.join(", ")}`);
+    error(
+      `${relPath}: invalid type "${fm.type}". Must be one of: ${VALID_TYPES.join(", ")}`,
+    );
     return false;
   }
-  
+
   // Validate status
   if (fm && !VALID_STATUSES.includes(fm.status)) {
-    error(`${relPath}: invalid status "${fm.status}". Must be one of: ${VALID_STATUSES.join(", ")}`);
+    error(
+      `${relPath}: invalid status "${fm.status}". Must be one of: ${VALID_STATUSES.join(", ")}`,
+    );
     return false;
   }
-  
+
   // Check for placeholders in non-planned pages (excluding intentional TODO placeholders)
   if (!isPlanned) {
     const content = readFileSync(filePath, "utf8");
     const placeholderPatterns = ["[ ]", "lorem"];
     for (const pattern of placeholderPatterns) {
       if (content.includes(pattern)) {
-        error(`${relPath}: contains placeholder "${pattern}" in non-planned page`);
+        error(
+          `${relPath}: contains placeholder "${pattern}" in non-planned page`,
+        );
         return false;
       }
     }
@@ -140,7 +161,7 @@ function checkFile(filePath) {
       return false;
     }
   }
-  
+
   return true;
 }
 
@@ -160,9 +181,9 @@ function getAllMdFiles(dir) {
 function checkSitemapLinks() {
   const configPath = join(docsDir, ".vitepress", "config.mts");
   if (!existsSync(configPath)) return;
-  
+
   const config = readFileSync(configPath, "utf8");
-  
+
   // Extract sidebar links (simplified - just check that referenced files exist)
   const linkMatches = config.matchAll(/"\/swarm\/[^"]+"/g);
   for (const match of linkMatches) {
@@ -183,19 +204,23 @@ function checkSitemapLinks() {
 function checkVerifiedVersions() {
   const versionPath = join(internalDir, "facts", "version.txt");
   if (!existsSync(versionPath)) {
-    warning("internal/facts/version.txt not found, skipping verified version check");
+    warning(
+      "internal/facts/version.txt not found, skipping verified version check",
+    );
     return;
   }
-  
+
   const currentVersion = readFileSync(versionPath, "utf8").trim();
-  
+
   for (const file of getAllMdFiles(docsDir)) {
     const fm = readFrontmatter(file);
     if (fm?.verified?.swarm) {
       const verifiedVersion = fm.verified.swarm;
       if (verifiedVersion !== currentVersion) {
         const relPath = relative(docsDir, file);
-        warning(`${relPath}: verified.swarm (${verifiedVersion}) differs from current version (${currentVersion})`);
+        warning(
+          `${relPath}: verified.swarm (${verifiedVersion}) differs from current version (${currentVersion})`,
+        );
       }
     }
   }

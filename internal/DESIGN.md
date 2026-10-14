@@ -4,23 +4,23 @@
 
 ## Color (light / dark)
 
-| token | light | dark | use |
-| --- | --- | --- | --- |
-| brand | #1659c4 | #74aaff | links, primary buttons |
-| brand-hover | #2d81ff | #a8caff | hover state |
-| brand-pressed | #0d3d8a | #4d8fff | active/pressed state |
-| brand-soft | #e8f0fe | #1a2e4a | soft backgrounds for brand elements |
-| bg | #ffffff | #121316 | page background |
-| bg-soft | #f2f1ee | #101014 | cards, code blocks, secondary surfaces |
-| bg-alt | #e9e8e4 | #060607 | tertiary surfaces, dividers |
-| text | #101014 | #f2f1ee | body text |
-| text-muted | #1010149e | #f2f1ee99 | secondary text, captions |
-| text-faint | #1010146b | #f2f1ee61 | placeholder text, disabled text |
-| border | #10101429 | #f2f1ee26 | dividers, card borders |
-| border-light | #10101414 | #f2f1ee14 | subtle dividers |
-| success | #2d81ff | #74aaff | success states, positive indicators |
-| warning | #ffb300 | #ffcc00 | warning states |
-| danger | #b3261e | #ff6259 | error states, destructive actions |
+| token         | light     | dark      | use                                    |
+| ------------- | --------- | --------- | -------------------------------------- |
+| brand         | #1659c4   | #74aaff   | links, primary buttons                 |
+| brand-hover   | #2d81ff   | #a8caff   | hover state                            |
+| brand-pressed | #0d3d8a   | #4d8fff   | active/pressed state                   |
+| brand-soft    | #e8f0fe   | #1a2e4a   | soft backgrounds for brand elements    |
+| bg            | #ffffff   | #121316   | page background                        |
+| bg-soft       | #f2f1ee   | #101014   | cards, code blocks, secondary surfaces |
+| bg-alt        | #e9e8e4   | #060607   | tertiary surfaces, dividers            |
+| text          | #101014   | #f2f1ee   | body text                              |
+| text-muted    | #1010149e | #f2f1ee99 | secondary text, captions               |
+| text-faint    | #1010146b | #f2f1ee61 | placeholder text, disabled text        |
+| border        | #10101429 | #f2f1ee26 | dividers, card borders                 |
+| border-light  | #10101414 | #f2f1ee14 | subtle dividers                        |
+| success       | #2d81ff   | #74aaff   | success states, positive indicators    |
+| warning       | #ffb300   | #ffcc00   | warning states                         |
+| danger        | #b3261e   | #ff6259   | error states, destructive actions      |
 
 ## Typography
 
@@ -54,19 +54,19 @@
 
 ## Mapping to VitePress variables
 
-| token | VitePress variable |
-| --- | --- |
-| brand | `--vp-c-brand-1` |
-| brand-hover | `--vp-c-brand-2` |
-| brand-pressed | `--vp-c-brand-3` |
-| brand-soft | `--vp-c-brand-soft` |
-| bg | `--vp-c-bg` |
-| bg-soft | `--vp-c-bg-soft` |
-| bg-alt | `--vp-c-bg-alt` |
-| text | `--vp-c-text-1` |
-| text-muted | `--vp-c-text-2` |
-| text-faint | `--vp-c-text-3` |
-| border | `--vp-c-divider` |
-| border-light | `--vp-c-divider-light` |
-| Sans | `--vp-font-family-base` |
-| Mono | `--vp-font-family-mono` |
+| token         | VitePress variable      |
+| ------------- | ----------------------- |
+| brand         | `--vp-c-brand-1`        |
+| brand-hover   | `--vp-c-brand-2`        |
+| brand-pressed | `--vp-c-brand-3`        |
+| brand-soft    | `--vp-c-brand-soft`     |
+| bg            | `--vp-c-bg`             |
+| bg-soft       | `--vp-c-bg-soft`        |
+| bg-alt        | `--vp-c-bg-alt`         |
+| text          | `--vp-c-text-1`         |
+| text-muted    | `--vp-c-text-2`         |
+| text-faint    | `--vp-c-text-3`         |
+| border        | `--vp-c-divider`        |
+| border-light  | `--vp-c-divider-light`  |
+| Sans          | `--vp-font-family-base` |
+| Mono          | `--vp-font-family-mono` |

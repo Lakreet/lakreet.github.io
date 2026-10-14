@@ -9,4 +9,61 @@ verified:
   effectcraft: 0.8.0
 ---
 
-TODO: written by /page (GENERATED)
+# Compatibility
+
+Tested version matrix from `compat.json`. `lakreet-swarm doctor` warns if your EffectCraft version isn't listed.
+
+## Tested combinations (v0.2.0)
+
+| lakreet-swarm | EffectCraft | Node       | OS                                     |
+| ------------- | ----------- | ---------- | -------------------------------------- |
+| 0.2.0         | 0.8.0       | 20, 22, 24 | Windows (win32), Linux, macOS (darwin) |
+
+## compat.json
+
+```json
+{
+  "testedEffectCraft": ["0.8.0"],
+  "testedNode": ["20", "22", "24"],
+  "testedOS": ["win32", "linux", "darwin"],
+  "notes": "EffectCraft moves fast. Re-run npm run smoke against a new EffectCraft release and add the version here."
+}
+```
+
+## Version status
+
+| Status     | Meaning                                                      |
+| ---------- | ------------------------------------------------------------ |
+| Tested     | Listed in compat.json, CI passes                             |
+| Compatible | Not listed, but doctor passes (no breaking changes detected) |
+| Untested   | Not listed, doctor warns                                     |
+
+Run `lakreet-swarm doctor` to check your environment:
+
+```
+[PASS] EffectCraft version — 0.8.0
+[FAIL] EffectCraft version — 0.9.0 — not in compat.json (tested: 0.8.0). Run `npm run smoke`.
+```
+
+## Updating compatibility
+
+When EffectCraft releases a new version:
+
+1. Test locally: `npm run smoke` in lakreet-swarm repo
+2. If passes: add version to compat.json
+3. Release patch with updated compat.json
+
+## EffectCraft version detection
+
+```bash
+effectcraft-cli info
+# EffectCraft 0.8.0
+```
+
+Parsed by doctor and compared to compat.json.
+
+## Next steps
+
+- [Install guide](/swarm/guides/install) — setup
+- [Doctor reference](/swarm/reference/cli/doctor) — diagnostics
+- [Environment](/swarm/reference/environment) — CLI search order

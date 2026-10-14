@@ -9,4 +9,48 @@ verified:
   effectcraft: 0.8.0
 ---
 
-TODO: written by /page (GENERATED)
+# Changelog
+
+All notable changes to lakreet-swarm.
+
+## [0.2.0] - 2026-10-14
+
+### Added
+
+- **RFC 4180 CSV parser** with BOM stripping, delimiter auto-detection (comma, semicolon, tab), quoted fields with embedded commas/line breaks/escaped quotes, and line-numbered errors for unterminated quotes
+- **Multi-format data input**: `.csv`/`.tsv` (RFC 4180), `.json` (array or `{rows:[]}`), `.jsonl`/`.ndjson` (one object per line)
+- **Control-type registry** with coercion and validation: `text`, `slider` (numbers only), `checkbox` (true/false from many spellings), fallback to text for unknown types
+- **Column mapping** via `lakreet.config.json` (`columns: { "CSV Header": "templateControl" }`)
+- **Output naming patterns**: `{index}`, `{index:N}`, `{first}`, `{ColumnName}`, `{slug:Column}` with collision de-duplication
+- **Subcommands**: `render`, `check`, `inspect`, `init`, `preview`, `doctor`
+- **Row selection**: `--only 1,3,5-8`, `--limit N`, `--skip-existing`
+- **Resilience**: `--retries N`, `--fail-fast`, `--timeout SEC`
+- **Reports**: `report.json` and `report.csv` with per-row status, timings, errors; `--json` NDJSON streaming
+- **Progress**: Pac-Man bar with ETA (TTY), time-based estimation (non-TTY), Ctrl+C graceful stop
+- **Environment diagnostics**: `doctor` checks Node, EffectCraft version, compat.json, disk, writability
+- **Security**: No shell execution; all CLI args passed as arrays; eslint rule forbids shell string commands
+- **Compatibility matrix**: `compat.json` with tested EffectCraft/Node/OS versions; `doctor` warns on untested versions
+- **Tests**: 63 unit + integration tests covering CSV, types, naming, selection, config, batch engine, Windows paths, 500-row validation
+- **CI**: GitHub Actions matrix (Ubuntu/Windows/macOS × Node 20/22/24)
+
+### Changed
+
+- Version bump to 0.2.0
+- `package.json` metadata: repository, homepage, bugs, keywords, `files` list, `prepublishOnly` script
+- Config file schema now includes `template`, `data`, `mediaDir`, `delimiter`, `emptyAsDefault`
+- Exit codes formalized: 0=OK, 1=render failed, 2=usage, 3=invalid data, 4=CLI not found, 5=template unreadable, 130=interrupted
+
+### Fixed
+
+- CSV parser: quotes were stripped instead of preserved (now verbatim through parse)
+- `--limit` was ignored when passed as string from CLI
+- Unknown columns in header-only files now detected
+- Windows reserved names (CON, COM1, LPT1…) now guarded in output names
+
+## [0.1.0] - 2026-10-01
+
+### Added
+
+- Initial prototype: reads CSV, calls EffectCraft CLI per row, writes MP4s
+- Basic progress bar
+- `safeName` for Windows-safe filenames

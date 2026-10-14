@@ -10,8 +10,20 @@ export default defineConfig({
   head: [
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:title", content: "Lakreet" }],
-    ["meta", { property: "og:description", content: "Small, focused tools for open-source creative software." }],
-    ["meta", { property: "og:image", content: "https://lakreet.github.io/og-image.png" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "Small, focused tools for open-source creative software.",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://lakreet.github.io/og-image.png",
+      },
+    ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
   ],
   themeConfig: {
@@ -31,7 +43,10 @@ export default defineConfig({
           items: [
             { text: "Your first batch", link: "/swarm/learn/first-batch" },
             { text: "Make a template", link: "/swarm/learn/make-a-template" },
-            { text: "Personalized videos", link: "/swarm/learn/personalized-videos" },
+            {
+              text: "Personalized videos",
+              link: "/swarm/learn/personalized-videos",
+            },
           ],
         },
         {
@@ -44,7 +59,10 @@ export default defineConfig({
             { text: "Validate first", link: "/swarm/guides/validate-first" },
             { text: "Preview", link: "/swarm/guides/preview" },
             { text: "Resume a batch", link: "/swarm/guides/resume-batches" },
-            { text: "Retries and timeouts", link: "/swarm/guides/retries-and-timeouts" },
+            {
+              text: "Retries and timeouts",
+              link: "/swarm/guides/retries-and-timeouts",
+            },
             { text: "Choose output", link: "/swarm/guides/choose-output" },
             { text: "Use in CI", link: "/swarm/guides/use-in-ci" },
             { text: "Troubleshoot", link: "/swarm/guides/troubleshoot" },
@@ -58,7 +76,10 @@ export default defineConfig({
             { text: "Configuration", link: "/swarm/reference/config" },
             { text: "Data formats", link: "/swarm/reference/data-formats" },
             { text: "Control types", link: "/swarm/reference/control-types" },
-            { text: "Naming patterns", link: "/swarm/reference/naming-patterns" },
+            {
+              text: "Naming patterns",
+              link: "/swarm/reference/naming-patterns",
+            },
             { text: "Row selection", link: "/swarm/reference/selection" },
             { text: "Exit codes", link: "/swarm/reference/exit-codes" },
             { text: "Errors", link: "/swarm/reference/errors" },
@@ -94,18 +115,22 @@ export default defineConfig({
         },
         {
           text: "Tools",
-          items: [{ text: "CSV generator", link: "/swarm/tools/csv-generator" }],
+          items: [
+            { text: "CSV generator", link: "/swarm/tools/csv-generator" },
+          ],
         },
       ],
     },
     socialLinks: [{ icon: "github", link: "https://github.com/Lakreet" }],
     search: { provider: "local" },
     editLink: {
-      pattern: "https://github.com/Lakreet/lakreet.github.io/edit/main/docs/:path",
+      pattern:
+        "https://github.com/Lakreet/lakreet.github.io/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
     footer: {
-      message: "Independent project. Not affiliated with the ArtCraft team or the EffectCraft project.",
+      message:
+        "Independent project. Not affiliated with the ArtCraft team or the EffectCraft project.",
     },
   },
   // Temporarily ignore dead links while we create all pages

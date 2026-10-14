@@ -1,0 +1,6 @@
+{
+  "testedEffectCraft": ["0.8.0"],
+  "testedNode": ["20", "22", "24"],
+  "testedOS": ["win32", "linux", "darwin"],
+  "notes": "EffectCraft moves fast. Re-run `npm run smoke` against a new EffectCraft release and add the version here."
+}

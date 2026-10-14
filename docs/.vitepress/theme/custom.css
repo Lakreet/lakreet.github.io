@@ -26,7 +26,9 @@
 
   /* Typography */
   --vp-font-family-base: "Archivo", system-ui, sans-serif;
-  --vp-font-family-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --vp-font-family-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   /* Spacing */
   --vp-spacing-1: 4px;
@@ -145,7 +147,9 @@
   border: 1px solid var(--vp-c-divider);
   border-radius: var(--vp-border-radius-md);
   padding: var(--vp-spacing-4);
-  transition: box-shadow var(--vp-transition-normal), border-color var(--vp-transition-fast);
+  transition:
+    box-shadow var(--vp-transition-normal),
+    border-color var(--vp-transition-fast);
 }
 
 .lakreet-card:hover {

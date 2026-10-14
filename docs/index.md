@@ -53,8 +53,8 @@ flowchart LR
 
 ## Compatibility
 
-| lakreet-swarm | EffectCraft | Node | OS |
-|---------------|-------------|------|-----|
-| 0.2.0 | 0.8.0 | 20, 22, 24 | Windows, Linux, macOS |
+| lakreet-swarm | EffectCraft | Node       | OS                    |
+| ------------- | ----------- | ---------- | --------------------- |
+| 0.2.0         | 0.8.0       | 20, 22, 24 | Windows, Linux, macOS |
 
 > **Independent project.** Not affiliated with the ArtCraft team or the EffectCraft project.

@@ -42,14 +42,14 @@ You will get one video per data row in the `out` folder.
 
 ## Commands
 
-| Command | Purpose |
-|---------|---------|
-| `render` | Render a batch of videos |
-| `check` | Validate template + data without rendering |
+| Command   | Purpose                                             |
+| --------- | --------------------------------------------------- |
+| `render`  | Render a batch of videos                            |
+| `check`   | Validate template + data without rendering          |
 | `inspect` | Show template controls, media, and composition info |
-| `init` | Generate a starter CSV from a template |
-| `preview` | Quick PNG frame per row (visual check) |
-| `doctor` | Environment diagnostics |
+| `init`    | Generate a starter CSV from a template              |
+| `preview` | Quick PNG frame per row (visual check)              |
+| `doctor`  | Environment diagnostics                             |
 
 ## Requirements
 
@@ -75,9 +75,9 @@ npx lakreet-swarm ...
 
 ## Compatibility
 
-| lakreet-swarm | EffectCraft | Node | OS |
-|---------------|-------------|------|-----|
-| 0.2.0 | 0.8.0 | 20, 22, 24 | Windows, Linux, macOS |
+| lakreet-swarm | EffectCraft | Node       | OS                    |
+| ------------- | ----------- | ---------- | --------------------- |
+| 0.2.0         | 0.8.0       | 20, 22, 24 | Windows, Linux, macOS |
 
 Run `lakreet-swarm doctor` to check your environment against the compatibility matrix.
 
