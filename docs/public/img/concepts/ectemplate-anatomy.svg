@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="var(--vp-c-bg, #ffffff)"/>
+  
+  <defs>
+    <style>
+      .node { font-family: var(--vp-font-family-base, system-ui, sans-serif); font-size: 13px; }
+      .node-title { font-weight: 600; fill: var(--vp-c-text-1, #101014); }
+      .node-detail { fill: var(--vp-c-text-2, #1010149e); font-size: 11px; }
+      .code { font-family: var(--vp-font-family-mono, ui-monospace, monospace); font-size: 11px; fill: var(--vp-c-brand-1, #1659c4); }
+      .label { fill: var(--vp-c-brand-1, #1659c4); font-weight: 600; font-size: 12px; }
+      .arrow { stroke: var(--vp-c-divider, #10101429); stroke-width: 1.5; fill: none; stroke-dasharray: 4 2; }
+      .zip-border { stroke: var(--vp-c-brand-1, #1659c4); stroke-width: 2; fill: var(--vp-c-brand-soft, #e8f0fe); }
+    </style>
+  </defs>
+
+  <!-- Main ZIP container -->
+  <g transform="translate(40, 30)">
+    <rect x="0" y="0" width="520" height="340" rx="12" ry="12" class="zip-border"/>
+    <text x="260" y="25" text-anchor="middle" class="node-title" style="font-size: 18px;">my-template.ectemplate (ZIP, stored)</text>
+    <text x="260" y="48" text-anchor="middle" class="node-detail">Format: effectcraft-template • Manifest version: 1</text>
+  </g>
+
+  <!-- manifest.json -->
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="180" height="220" rx="8" ry="8" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="90" y="25" text-anchor="middle" class="node-title">manifest.json</text>
+    <text x="90" y="50" text-anchor="middle" class="code">{</text>
+    <text x="90" y="70" text-anchor="middle" class="node-detail">"version": 1</text>
+    <text x="90" y="88" text-anchor="middle" class="node-detail">"format": "effectcraft-template"</text>
+    <text x="90" y="106" text-anchor="middle" class="node-detail">"name": "Comp 1"</text>
+    <text x="90" y="124" text-anchor="middle" class="node-detail">"width": 1920, "height": 1080</text>
+    <text x="90" y="142" text-anchor="middle" class="node-detail">"duration": 10.01</text>
+    <text x="90" y="160" text-anchor="middle" class="node-detail">"frameRate": 29.97</text>
+    <text x="90" y="180" text-anchor="middle" class="node-detail">"controls": [</text>
+    <text x="90" y="196" text-anchor="middle" class="code">  { "name": "Source Text", "type": "text", "value": "..." }</text>
+    <text x="90" y="212" text-anchor="middle" class="code">  { "name": "Opacity", "type": "slider", "value": 100 }</text>
+    <text x="90" y="228" text-anchor="middle" class="node-detail">]</text>
+    <text x="90" y="244" text-anchor="middle" class="code">}</text>
+  </g>
+
+  <!-- project.ecproj -->
+  <g transform="translate(280, 100)">
+    <rect x="0" y="0" width="240" height="220" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-divider, #10101429)" stroke-width="2"/>
+    <text x="120" y="25" text-anchor="middle" class="node-title">project.ecproj</text>
+    <text x="120" y="55" text-anchor="middle" class="node-detail" style="font-size: 11px;">Full EffectCraft project binary</text>
+    <text x="120" y="80" text-anchor="middle" class="node-detail" style="font-size: 11px;">Contains all layers, effects,</text>
+    <text x="120" y="96" text-anchor="middle" class="node-detail" style="font-size: 11px;">expressions, footage refs</text>
+    <text x="120" y="120" text-anchor="middle" class="node-detail" style="font-size: 11px; color: var(--vp-c-danger, #b3261e);">⚠ Large (MBs)</text>
+    <text x="120" y="145" text-anchor="middle" class="node-detail" style="font-size: 11px;">Opened in EffectCraft to edit</text>
+    <text x="120" y="165" text-anchor="middle" class="node-detail" style="font-size: 11px;">template design</text>
+    <text x="120" y="195" text-anchor="middle" class="code" style="font-size: 10px;">Binary format</text>
+    <text x="120" y="210" text-anchor="middle" class="code" style="font-size: 10px;">Not human-readable</text>
+  </g>
+
+  <!-- poster.png -->
+  <g transform="translate(80, 340)">
+    <rect x="0" y="0" width="180" height="100" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-divider, #10101429)" stroke-width="2"/>
+    <rect x="10" y="10" width="160" height="60" rx="4" ry="4" fill="#1a1a2e" stroke="var(--vp-c-divider, #10101429)"/>
+    <text x="90" y="50" text-anchor="middle" class="node-detail" fill="var(--vp-c-text-2, #1010149e)">🖼 Thumbnail</text>
+    <text x="90" y="70" text-anchor="middle" class="node-detail" style="font-size: 10px;">1920×1080 PNG</text>
+    <text x="90" y="90" text-anchor="middle" class="node-title" style="font-size: 12px;">poster.png</text>
+  </g>
+
+  <!-- media/ folder (optional) -->
+  <g transform="translate(280, 340)">
+    <rect x="0" y="0" width="240" height="100" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-warning, #ffb300)" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="120" y="25" text-anchor="middle" class="node-title" fill="var(--vp-c-warning, #ffb300)">media/ (optional)</text>
+    <text x="120" y="50" text-anchor="middle" class="node-detail">logo.png, footage.mp4...</text>
+    <text x="120" y="70" text-anchor="middle" class="node-detail" style="font-size: 10px;">Referenced in manifest.json</text>
+    <text x="120" y="90" text-anchor="middle" class="node-detail" style="font-size: 10px; color: var(--vp-c-warning, #ffb300);">⚠ Not replaced by --values</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(40, 380)">
+    <rect x="0" y="0" width="20" height="20" rx="4" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="30" y="15" class="node-detail">manifest.json — read by lakreet-swarm</text>
+  </g>
+  <g transform="translate(280, 380)">
+    <rect x="0" y="0" width="20" height="20" rx="4" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-divider, #10101429)" stroke-width="2"/>
+    <text x="30" y="15" class="node-detail">project.ecproj — full EC project</text>
+  </g>
+  <g transform="translate(480, 380)">
+    <rect x="0" y="0" width="20" height="20" rx="4" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-warning, #ffb300)" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="30" y="15" class="node-detail">media/ — not replaced by --values</text>
+  </g>
+
+  <!-- Warning box -->
+  <g transform="translate(40, 20)">
+    <rect x="380" y="0" width="180" height="30" rx="6" fill="#fdeaea" stroke="var(--vp-c-danger, #b3261e)" stroke-width="1.5"/>
+    <text x="470" y="18" text-anchor="middle" class="node-detail" fill="var(--vp-c-danger, #b3261e)" style="font-size: 11px;">⚠ Template contains full project</text>
+  </g>
+</svg>

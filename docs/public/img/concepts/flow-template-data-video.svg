@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <!-- Background -->
+  <rect width="800" height="300" fill="var(--vp-c-bg, #ffffff)"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="var(--vp-c-brand-1, #1659c4)"/>
+    </marker>
+    <style>
+      .node { font-family: var(--vp-font-family-base, system-ui, sans-serif); font-size: 14px; }
+      .node-title { font-weight: 600; fill: var(--vp-c-text-1, #101014); }
+      .node-detail { fill: var(--vp-c-text-2, #1010149e); font-size: 12px; }
+      .arrow { stroke: var(--vp-c-brand-1, #1659c4); stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .plus { fill: var(--vp-c-text-2, #1010149e); font-size: 24px; }
+      .label { fill: var(--vp-c-brand-1, #1659c4); font-weight: 600; font-size: 13px; }
+    </style>
+  </defs>
+
+  <!-- Template Node -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="200" height="100" rx="8" ry="8" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" class="node node-title">EffectCraft Template</text>
+    <text x="100" y="50" text-anchor="middle" class="node node-detail">.ectemplate (ZIP)</text>
+    <text x="100" y="70" text-anchor="middle" class="node node-detail">manifest.json + project.ecproj</text>
+    <text x="100" y="90" text-anchor="middle" class="node node-detail">poster.png</text>
+  </g>
+
+  <!-- Data Node -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="200" height="80" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-divider, #10101429)" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" class="node node-title">Data File</text>
+    <text x="100" y="45" text-anchor="middle" class="node node-detail">CSV / JSON / JSONL</text>
+    <text x="100" y="65" text-anchor="middle" class="node node-detail">Headers = Control names</text>
+  </g>
+
+  <!-- Arrow to lakreet-swarm -->
+  <line x1="250" y1="130" x2="320" y2="130" class="arrow"/>
+  <line x1="250" y1="220" x2="320" y2="190" class="arrow"/>
+
+  <!-- lakreet-swarm Node -->
+  <g transform="translate(340, 80)">
+    <rect x="0" y="0" width="180" height="140" rx="8" ry="8" fill="var(--vp-c-brand-1, #1659c4)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="90" y="35" text-anchor="middle" class="node" fill="white" style="font-weight: 700; font-size: 16px;">lakreet-swarm</text>
+    <text x="90" y="60" text-anchor="middle" class="node" fill="white" style="font-size: 12px; opacity: 0.9;">1. Validate all rows</text>
+    <text x="90" y="80" text-anchor="middle" class="node" fill="white" style="font-size: 12px; opacity: 0.9;">2. Map columns (config)</text>
+    <text x="90" y="100" text-anchor="middle" class="node" fill="white" style="font-size: 12px; opacity: 0.9;">3. Select rows (--only)</text>
+    <text x="90" y="120" text-anchor="middle" class="node" fill="white" style="font-size: 12px; opacity: 0.9;">4. For each row: render</text>
+    <text x="90" y="140" text-anchor="middle" class="node" fill="white" style="font-size: 12px; opacity: 0.9;">5. Write reports</text>
+  </g>
+
+  <!-- Arrow to outputs -->
+  <line x1="520" y1="130" x2="590" y2="130" class="arrow"/>
+  <line x1="520" y1="170" x2="590" y2="170" class="arrow"/>
+  <line x1="520" y1="210" x2="590" y2="210" class="arrow"/>
+
+  <!-- Output Nodes -->
+  <g transform="translate(610, 50)">
+    <rect x="0" y="0" width="160" height="50" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-success, #2d81ff)" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="node node-title" fill="var(--vp-c-success, #2d81ff)">Video 1.mp4</text>
+  </g>
+
+  <g transform="translate(610, 125)">
+    <rect x="0" y="0" width="160" height="50" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-success, #2d81ff)" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="node node-title" fill="var(--vp-c-success, #2d81ff)">Video 2.mp4</text>
+  </g>
+
+  <g transform="translate(610, 200)">
+    <rect x="0" y="0" width="160" height="50" rx="8" ry="8" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-success, #2d81ff)" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="node node-title" fill="var(--vp-c-success, #2d81ff)">Video N.mp4</text>
+  </g>
+
+  <!-- Report Node -->
+  <g transform="translate(610, 260)">
+    <rect x="0" y="0" width="160" height="35" rx="8" ry="8" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="80" y="22" text-anchor="middle" class="node node-title" fill="var(--vp-c-brand-1, #1659c4)">report.json + report.csv</text>
+  </g>
+
+  <!-- Labels -->
+  <text x="150" y="50" text-anchor="middle" class="label">INPUT</text>
+  <text x="430" y="50" text-anchor="middle" class="label">PROCESS</text>
+  <text x="690" y="30" text-anchor="middle" class="label">OUTPUT</text>
+
+  <!-- Formula: 1 template + data = many videos -->
+  <text x="400" y="280" text-anchor="middle" class="label" style="font-size: 14px; fill: var(--vp-c-text-2, #1010149e);">
+    1 template + 1 data file → N videos + reports
+  </text>
+</svg>

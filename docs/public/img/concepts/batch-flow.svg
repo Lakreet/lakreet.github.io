@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="var(--vp-c-bg, #ffffff)"/>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="var(--vp-c-brand-1, #1659c4)"/>
+    </marker>
+    <style>
+      .step { font-family: var(--vp-font-family-base, system-ui, sans-serif); font-size: 13px; }
+      .step-num { font-weight: 700; fill: var(--vp-c-brand-1, #1659c4); font-size: 20px; }
+      .step-title { font-weight: 600; fill: var(--vp-c-text-1, #101014); font-size: 14px; }
+      .step-desc { fill: var(--vp-c-text-2, #1010149e); font-size: 11px; }
+      .step-code { font-family: var(--vp-font-family-mono, ui-monospace, monospace); font-size: 10px; fill: var(--vp-c-brand-1, #1659c4); }
+      .arrow { stroke: var(--vp-c-brand-1, #1659c4); stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: var(--vp-c-divider, #10101429); stroke-width: 1.5; fill: none; stroke-dasharray: 4 2; }
+      .decision { fill: var(--vp-c-warning, #ffb300); }
+      .success { fill: var(--vp-c-success, #2d81ff); }
+      .fail { fill: var(--vp-c-danger, #b3261e); }
+      .loop { stroke: var(--vp-c-warning, #ffb300); stroke-width: 1.5; fill: none; stroke-dasharray: 4 2; marker-end: url(#arrowhead); }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="step" style="font-size: 18px; font-weight: 700; fill: var(--vp-c-text-1, #101014);">Batch Render Flow (per batch)</text>
+  <text x="400" y="50" text-anchor="middle" class="step" style="font-size: 12px; fill: var(--vp-c-text-2, #1010149e);">lakreet-swarm render --template T.ectemplate --data D.csv</text>
+
+  <!-- Step 1: Load -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="220" height="120" rx="10" ry="10" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" class="step step-num">1</text>
+    <text x="110" y="55" text-anchor="middle" class="step step-title">Load Template & Data</text>
+    <text x="110" y="75" text-anchor="middle" class="step step-desc">effectcraft-cli inspect</text>
+    <text x="110" y="90" text-anchor="middle" class="step step-desc">Parse CSV/JSON/JSONL</text>
+    <text x="110" y="105" text-anchor="middle" class="step step-code">manifest.json → controls, media</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="270" y1="140" x2="300" y2="140" class="arrow"/>
+
+  <!-- Step 2: Validate -->
+  <g transform="translate(320, 80)">
+    <rect x="0" y="0" width="220" height="140" rx="10" ry="10" fill="var(--vp-c-bg-soft, #f2f1ee)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" class="step step-num">2</text>
+    <text x="110" y="55" text-anchor="middle" class="step step-title">Validate ALL Rows</text>
+    <text x="110" y="75" text-anchor="middle" class="step step-desc">Type coercion (text/slider/checkbox)</text>
+    <text x="110" y="90" text-anchor="middle" class="step step-desc">Media path existence</text>
+    <text x="110" y="105" text-anchor="middle" class="step step-desc">Column mapping (config)</text>
+    <text x="110" y="120" text-anchor="middle" class="step step-desc">Row selection (--only, --limit)</text>
+    <text x="110" y="135" text-anchor="middle" class="step step-code" style="fill: var(--vp-c-danger, #b3261e);">Exit 3 if ANY error</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <line x1="540" y1="140" x2="570" y2="140" class="arrow"/>
+
+  <!-- Step 3: Render Loop -->
+  <g transform="translate(590, 80)">
+    <rect x="0" y="0" width="180" height="220" rx="10" ry="10" fill="#fff8e1" stroke="var(--vp-c-warning, #ffb300)" stroke-width="2"/>
+    <text x="90" y="30" text-anchor="middle" class="step step-num">3</text>
+    <text x="90" y="55" text-anchor="middle" class="step step-title">Render Loop</text>
+    <text x="90" y="75" text-anchor="middle" class="step step-desc">For each selected row:</text>
+    
+    <!-- Loop box -->
+    <rect x="10" y="85" width="160" height="130" rx="8" ry="8" fill="white" stroke="var(--vp-c-warning, #ffb300)" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="90" y="100" text-anchor="middle" class="step step-code" style="fill: var(--vp-c-warning, #ffb300);">FOR row in rows</text>
+    <text x="90" y="118" text-anchor="middle" class="step step-code">build .values.json</text>
+    <text x="90" y="132" text-anchor="middle" class="step step-code">spawn effectcraft-cli render</text>
+    <text x="90" y="146" text-anchor="middle" class="step step-code">wait for exit code</text>
+    <text x="90" y="160" text-anchor="middle" class="step step-code">collect output + time</text>
+    <text x="90" y="174" text-anchor="middle" class="step step-code">END FOR</text>
+    
+    <text x="90" y="210" text-anchor="middle" class="step step-desc" style="fill: var(--vp-c-warning, #ffb300);">Sequential (no --jobs)</text>
+    <text x="90" y="225" text-anchor="middle" class="step step-code">--retries N, --timeout SEC</text>
+    <text x="90" y="240" text-anchor="middle" class="step step-code">--fail-fast, --skip-existing</text>
+  </g>
+
+  <!-- Arrow 3→4 (success) -->
+  <line x1="770" y1="130" x2="800" y2="130" class="arrow"/>
+  <text x="785" y="120" text-anchor="middle" class="step step-desc" style="font-size: 10px; fill: var(--vp-c-success, #2d81ff);">succeeded</text>
+
+  <!-- Arrow 3→4 (failure) -->
+  <line x1="770" y1="190" x2="800" y2="240" class="arrow"/>
+  <text x="785" y="200" text-anchor="middle" class="step step-desc" style="font-size: 10px; fill: var(--vp-c-danger, #b3261e);">failed → report</text>
+
+  <!-- Step 4: Reports -->
+  <g transform="translate(620, 320)">
+    <rect x="0" y="0" width="180" height="150" rx="10" ry="10" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="2"/>
+    <text x="90" y="30" text-anchor="middle" class="step step-num">4</text>
+    <text x="90" y="55" text-anchor="middle" class="step step-title">Write Reports</text>
+    <text x="90" y="75" text-anchor="middle" class="step step-desc">report.json (full)</text>
+    <text x="90" y="90" text-anchor="middle" class="step step-desc">report.csv (spreadsheet)</text>
+    <text x="90" y="105" text-anchor="middle" class="step step-desc">NDJSON stream (--json)</text>
+    <text x="90" y="120" text-anchor="middle" class="step step-desc">Console summary</text>
+    <text x="90" y="135" text-anchor="middle" class="step step-code">Exit: 0 / 1 / 130</text>
+  </g>
+
+  <!-- Arrow 2→4 (validation fail) -->
+  <path d="M 430 220 Q 430 260 320 320" class="arrow" style="stroke: var(--vp-c-danger, #b3261e);"/>
+  <text x="380" y="250" class="step step-desc" style="fill: var(--vp-c-danger, #b3261e); font-size: 10px;">validation failed → exit 3</text>
+
+  <!-- Ctrl+C interrupt -->
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="220" height="60" rx="8" ry="8" fill="#fdeaea" stroke="var(--vp-c-danger, #b3261e)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="110" y="22" text-anchor="middle" class="step step-code" fill="var(--vp-c-danger, #b3261e)">Ctrl+C (SIGINT)</text>
+    <text x="110" y="40" text-anchor="middle" class="step step-desc" fill="var(--vp-c-danger, #b3261e)">Finish current render</text>
+    <text x="110" y="52" text-anchor="middle" class="step step-desc" fill="var(--vp-c-danger, #b3261e)">Write partial report → exit 130</text>
+  </g>
+
+  <!-- Resume arrow -->
+  <path d="M 160 280 Q 160 300 320 320" class="loop"/>
+  <text x="200" y="295" text-anchor="middle" class="step step-desc" style="font-size: 10px; fill: var(--vp-c-warning, #ffb300);">--skip-existing → resume</text>
+
+  <!-- Progress estimation note -->
+  <g transform="translate(320, 230)">
+    <rect x="0" y="0" width="220" height="80" rx="8" ry="8" fill="#fff8e1" stroke="var(--vp-c-warning, #ffb300)" stroke-width="1.5"/>
+    <text x="110" y="22" text-anchor="middle" class="step step-code" fill="var(--vp-c-warning, #ffb300);">Progress Estimation</text>
+    <text x="110" y="40" text-anchor="middle" class="step step-desc" style="font-size: 10px;">TTY: Pac-Man bar + ETA</text>
+    <text x="110" y="54" text-anchor="middle" class="step step-desc" style="font-size: 10px;">Non-TTY: time-based estimate</text>
+    <text x="110" y="68" text-anchor="middle" class="step step-desc" style="font-size: 10px;">EffectCraft doesn't report frames</text>
+    <text x="110" y="82" text-anchor="middle" class="step step-desc" style="font-size: 10px;">ETA = average × remaining</text>
+  </g>
+
+  <!-- Column mapping note -->
+  <g transform="translate(320, 330)">
+    <rect x="0" y="0" width="220" height="60" rx="8" ry="8" fill="var(--vp-c-brand-soft, #e8f0fe)" stroke="var(--vp-c-brand-1, #1659c4)" stroke-width="1.5"/>
+    <text x="110" y="22" text-anchor="middle" class="step step-code" fill="var(--vp-c-brand-1, #1659c4);">Column Mapping</text>
+    <text x="110" y="40" text-anchor="middle" class="step step-desc" style="font-size: 10px;">CLI > Config > Default</text>
+    <text x="110" y="54" text-anchor="middle" class="step step-code" style="font-size: 10px;">"columns": { "CSV": "Control" }</text>
+  </g>
+</svg>
