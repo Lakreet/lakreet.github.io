@@ -1,0 +1,23 @@
+{
+  "name": "lakreet-docs",
+  "version": "1.0.0",
+  "description": "Lakreet documentation site built with VitePress",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "bun run docs:build && node scripts/check-docs.mjs",
+    "lint": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.44"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

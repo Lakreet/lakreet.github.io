@@ -1,0 +1,56 @@
+﻿{
+  "name": "lakreet-swarm",
+  "version": "0.2.0",
+  "description": "Render many videos from one EffectCraft template and a CSV/JSON file",
+  "keywords": [
+    "effectcraft",
+    "video",
+    "render",
+    "batch",
+    "csv",
+    "automation",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lakreet/lakreet-swarm.git"
+  },
+  "homepage": "https://lakreet.github.io",
+  "bugs": {
+    "url": "https://github.com/Lakreet/lakreet-swarm/issues"
+  },
+  "type": "module",
+  "bin": {
+    "lakreet-swarm": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "compat.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test",
+    "smoke": "node scripts/smoke.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "checkall": "npm run format:check && npm run lint && npm test && npm run smoke",
+    "prepublishOnly": "npm run checkall"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.12.0",
+    "prettier": "^3.6.2",
+    "typescript": "^7.0.2"
+  }
+}
+

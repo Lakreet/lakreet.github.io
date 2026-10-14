@@ -1,0 +1,13 @@
+[
+  {
+    "id": "lakreet-swarm",
+    "name": "lakreet-swarm",
+    "tagline": "Render many videos from one EffectCraft template and a CSV/JSON file",
+    "status": "stable",
+    "version": "0.2.0",
+    "repo": "https://github.com/Lakreet/lakreet-swarm",
+    "docs": "/swarm/",
+    "tags": ["video", "batch", "effectcraft", "csv", "automation"],
+    "category": "rendering"
+  }
+]

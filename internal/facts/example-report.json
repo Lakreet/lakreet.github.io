@@ -1,0 +1,58 @@
+﻿{
+  "tool": "lakreet-swarm",
+  "version": "0.2.0",
+  "effectcraft": null,
+  "startedAt": "2026-10-14T11:57:19.180Z",
+  "finishedAt": "2026-10-14T11:58:37.595Z",
+  "template": "examples/title2.ectemplate",
+  "data": "examples/data.csv",
+  "summary": {
+    "total": 5,
+    "succeeded": 5,
+    "failed": 0,
+    "skipped": 0
+  },
+  "rows": [
+    {
+      "index": 1,
+      "where": "line 2",
+      "status": "ok",
+      "output": "C:\Users\<you>\\AppData\\Local\\Temp\\facts-out\\1-Budi.mp4",
+      "seconds": 15.5,
+      "error": null
+    },
+    {
+      "index": 2,
+      "where": "line 3",
+      "status": "ok",
+      "output": "C:\Users\<you>\\AppData\\Local\\Temp\\facts-out\\2-Sari.mp4",
+      "seconds": 15.3,
+      "error": null
+    },
+    {
+      "index": 3,
+      "where": "line 4",
+      "status": "ok",
+      "output": "C:\Users\<you>\\AppData\\Local\\Temp\\facts-out\\3-Andi.mp4",
+      "seconds": 16,
+      "error": null
+    },
+    {
+      "index": 4,
+      "where": "line 5",
+      "status": "ok",
+      "output": "C:\Users\<you>\\AppData\\Local\\Temp\\facts-out\\4-Rina.mp4",
+      "seconds": 16.5,
+      "error": null
+    },
+    {
+      "index": 5,
+      "where": "line 6",
+      "status": "ok",
+      "output": "C:\Users\<you>\\AppData\\Local\\Temp\\facts-out\\5-A_B.mp4",
+      "seconds": 15.1,
+      "error": null
+    }
+  ]
+}
+

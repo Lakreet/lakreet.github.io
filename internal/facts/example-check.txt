@@ -1,0 +1,6 @@
+﻿OK
+  template:  examples/title2.ectemplate
+  controls:  2 (Source Text, Opacity)
+  data:      examples/data.csv
+  rows:      5 valid
+

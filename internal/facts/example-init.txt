@@ -1,0 +1,2 @@
+﻿Wrote C:\Users\Ibnu\AppData\Local\Temp\starter.csv (1 row(s), delimiter ",").
+

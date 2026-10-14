@@ -1,0 +1,43 @@
+﻿lakreet-swarm ΓÇö render many videos from one EffectCraft template + a data file
+
+Usage:
+  lakreet-swarm render --template T.ectemplate --data D.csv [options]
+  lakreet-swarm check  --template T.ectemplate --data D.csv   (validate only)
+  lakreet-swarm init   --template T.ectemplate [--out data.csv]
+  lakreet-swarm inspect <template.ectemplate> [--json]
+  lakreet-swarm preview --template T --data D [--row N | --all] [--time S]
+  lakreet-swarm doctor [--render-test]
+
+Render options:
+  --template FILE     EffectCraft template (.ectemplate)
+  --data FILE         Data file (.csv/.tsv/.json/.jsonl)
+  --out DIR           Output folder (default: out)
+  --cli PATH          Path to effectcraft-cli
+  --config FILE       Config file (default: lakreet.config.json)
+  --name PATTERN      Output name pattern (default: {index}-{first})
+  --only LIST         Select rows, e.g. 1,3,5-8
+  --limit N           Process only the first N rows
+  --skip-existing     Skip rows whose output already exists
+  --retries N         Extra attempts for a failed render
+  --fail-fast         Stop at the first failure
+  --timeout SEC       Per-render timeout
+  --format F          h264|webm|png|jpeg|gif|...
+  --resolution R      full|half|third|quarter
+  --quality Q         best|draft
+  --fps N             Frame rate
+  --bitrate KBPS      Video bitrate
+  --audio MODE        auto|on|off
+  --media-dir DIR     Base folder for relative media paths
+  --keep-values       Keep per-row values JSON files
+  --empty-as-default  Treat empty text cells as template default
+  --dry-run           Validate without rendering
+  --json              Machine-readable NDJSON output
+  --quiet, --verbose  Output verbosity
+  --no-color          Disable colour
+  -h, --help          Show help
+  -v, --version       Show version
+
+Exit codes:
+  0 ok ┬╖ 1 render failed ┬╖ 2 usage ┬╖ 3 invalid data ┬╖ 4 cli not found ┬╖ 5 template unreadable ┬╖ 130 interrupted
+
+

@@ -1,0 +1,8 @@
+﻿[PASS] Node.js 24.13.0 ΓÇö >= 20
+[PASS] effectcraft-cli ΓÇö C:\Program Files\EffectCraft\effectcraft-cli.exe
+[PASS] EffectCraft version ΓÇö 0.8.0
+[PASS] output folder "out" ΓÇö writable
+[PASS] free disk ΓÇö 96.8 GB
+
+All checks passed.
+

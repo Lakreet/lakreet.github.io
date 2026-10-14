@@ -1,0 +1,10 @@
+﻿Template: examples/title2.ectemplate
+  name:     Comp 1
+  size:     1920x1080
+  duration: 10.01s @ 29.97 fps
+  generator:EffectCraft 0.8.0
+
+Controls (2):
+  - Source Text  (text)  default="Test"
+  - Opacity  (slider)  default=100
+
