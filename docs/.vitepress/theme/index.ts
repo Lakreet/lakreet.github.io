@@ -5,6 +5,7 @@ import StatusBadge from "./components/StatusBadge.vue";
 import Since from "./components/Since.vue";
 import VideoEmbed from "./components/VideoEmbed.vue";
 import CompatTable from "./components/CompatTable.vue";
+import CsvGenerator from "./components/CsvGenerator.vue";
 import "./custom.css";
 
 export default {
@@ -15,5 +16,6 @@ export default {
     app.component("Since", Since);
     app.component("VideoEmbed", VideoEmbed);
     app.component("CompatTable", CompatTable);
+    app.component("CsvGenerator", CsvGenerator);
   },
 } satisfies Theme;

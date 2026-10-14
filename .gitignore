@@ -22,7 +22,6 @@ Thumbs.db
 
 # Internal agent tooling (jangan di-publish)
 .opencode/
-.github/
 
 # Logs
 *.log

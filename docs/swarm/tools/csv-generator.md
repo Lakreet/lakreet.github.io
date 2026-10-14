@@ -9,4 +9,6 @@ verified:
   effectcraft: 0.8.0
 ---
 
-TODO: written by /page
+<ClientOnly>
+  <CsvGenerator />
+</ClientOnly>
