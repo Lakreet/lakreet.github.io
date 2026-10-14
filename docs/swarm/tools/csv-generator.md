@@ -9,6 +9,8 @@ verified:
   effectcraft: 0.8.0
 ---
 
+![CSV Generator UI](/img/tools/csv-generator.png)
+
 <ClientOnly>
   <CsvGenerator />
 </ClientOnly>

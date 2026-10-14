@@ -67,6 +67,8 @@ When multiple rows, an `index.html` is generated:
 - Caption: row number + base name
 - Dark theme for video thumbnails
 
+![Preview gallery](/img/guides/preview-gallery.png)
+
 ## How it works
 
 1. Validates data (same as `check`)

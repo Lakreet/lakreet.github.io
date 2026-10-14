@@ -62,6 +62,8 @@ lakreet-swarm doctor
 
 Output includes Node, EffectCraft version, compat check, disk, writability.
 
+![Doctor output](/img/guides/doctor-output.png)
+
 ### 2. Include in GitHub issues
 
 When filing an issue, **always paste `doctor` output**:

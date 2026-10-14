@@ -22,6 +22,8 @@ Extra attempts for failed renders:
 lakreet-swarm render --template t.ectemplate --data d.csv --retries 2
 ```
 
+![Render progress with Pac-Man bar](/img/guides/render-progress.png)
+
 - Applies per-row
 - Each retry is a full re-render
 - Report shows final status after all retries

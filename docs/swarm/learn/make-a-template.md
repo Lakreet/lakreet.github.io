@@ -39,7 +39,7 @@ For each property you want to control from CSV/JSON:
 3. Choose the property (e.g., **Source Text**, **Opacity**, **Position**, **Scale**)
 4. Repeat for every property you want to drive from data
 
-> **Note:** Screenshot of Animation ▸ Add Property to Essential Graphics menu to be added.
+![Add Property to Essential Graphics menu](/img/learn/eg-add-property.png)
 
 **Control naming matters:**
 
@@ -52,7 +52,7 @@ For each property you want to control from CSV/JSON:
 2. Choose a folder and filename (e.g., `my-template.ectemplate`)
 3. Click **Save**
 
-> **Note:** Screenshot of File ▸ Export ▸ Essential Graphics Template dialog to be added.
+![Export Essential Graphics Template dialog](/img/learn/eg-export-template.png)
 
 The exported `.ectemplate` is a ZIP containing:
 
