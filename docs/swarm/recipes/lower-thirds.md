@@ -15,11 +15,12 @@ Create lower third graphics for video interviews, presentations, streams.
 
 ## Template controls
 
-| Control name  | Type  | Description                        |
-| ------------- | ----- | ---------------------------------- |
-| Speaker Name  | text  | Full name                          |
-| Speaker Title | text  | Role, company, affiliation         |
-| Logo          | media | Organization logo (when supported) |
+| Control name  | Type | Description                |
+| ------------- | ---- | -------------------------- |
+| Speaker Name  | text | Full name                  |
+| Speaker Title | text | Role, company, affiliation |
+
+> A per-row organization logo is **not possible yet**: media replacement is not supported. See [Media guide](/swarm/guides/media).
 
 ## CSV example
 
@@ -36,7 +37,7 @@ Andi Wijaya,Founder, StartupXYZ
 lakreet-swarm render \
   --template lower-third.ectemplate \
   --data speakers.csv \
-  --format webm \
+  --format h264 \
   --name "LT-{index:3}-{slug:Speaker Name}" \
   --resolution half
 ```
@@ -44,9 +45,9 @@ lakreet-swarm render \
 ## Output
 
 ```
-out/LT-001-budi-santoso.webm
-out/LT-002-sari-dewi.webm
-out/LT-003-andi-wijaya.webm
+out/LT-001-budi-santoso.mp4
+out/LT-002-sari-dewi.mp4
+out/LT-003-andi-wijaya.mp4
 ```
 
 ## Variations
@@ -59,6 +60,6 @@ out/LT-003-andi-wijaya.webm
 
 ## Next steps
 
-- [Choose output](/swarm/guides/choose-output) — WebM for transparency
-- [Media guide](/swarm/guides/media) — logo support status
+- [Choose output](/swarm/guides/choose-output) — formats and resolution
+- [Media guide](/swarm/guides/media) — media replacement status
 - [Social sizes](/swarm/recipes/social-sizes) — multiple resolutions

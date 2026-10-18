@@ -34,13 +34,21 @@ Exit code: `0`
 ## Error output
 
 ```
-Found 3 problem(s) in data.csv:
+Found 2 problem(s) in data.csv:
 - Line 3, column "Opacity": "abc" is not a number.
 - Line 5, column "Source Text": column "Source Text" is required.
-- Line 7, column "Logo": file not found: /assets/missing.png
 ```
 
 Exit code: `3` (`DATA_INVALID`)
+
+A column that maps to a media control stops `check` before any problem list:
+
+```
+Column "Logo" maps to a media control; media replacement is not supported yet.
+  Hint: Use text, number or checkbox controls for now, or remove the column.
+```
+
+Exit code: `3` (`E_MEDIA_UNSUPPORTED`)
 
 ## What gets validated
 
@@ -49,7 +57,7 @@ Exit code: `3` (`DATA_INVALID`)
 | Column matches control          | `Column "Foo" is not a control of the template`                   |
 | Slider = number                 | `"abc" is not a number`                                           |
 | Checkbox = boolean              | `"yes" is not a boolean` (accepts true/false/yes/no/1/0/ya/tidak) |
-| Media file exists               | `file not found: /path/to/missing.png`                            |
+| Media control present           | `media replacement is not supported yet`                          |
 | Required columns present        | `column "Source Text" is required`                                |
 | Row column count matches header | `expected 2 columns, found 3`                                     |
 

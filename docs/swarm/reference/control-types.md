@@ -89,11 +89,11 @@ If EffectCraft adds new control types, lakreet-swarm treats them as text:
 
 ## Planned (not yet supported)
 
-| Type  | EffectCraft property     | Status                           |
-| ----- | ------------------------ | -------------------------------- |
-| color | Color Control            | Planned                          |
-| point | Point Control (Position) | Planned                          |
-| media | Footage/Image layer      | Planned (requires pipeline mode) |
+| Type  | EffectCraft property     | Status                                                  |
+| ----- | ------------------------ | ------------------------------------------------------- |
+| color | Color Control            | Planned                                                 |
+| point | Point Control (Position) | Planned                                                 |
+| media | Footage/Image layer      | Not supported yet (rejected with `E_MEDIA_UNSUPPORTED`) |
 
 ## Next steps
 

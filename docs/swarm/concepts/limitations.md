@@ -15,7 +15,7 @@ Honest list of what lakreet-swarm **cannot** do in v0.2.0.
 
 ## Media replacement
 
-**Not supported.** EffectCraft's `--values` flag only drives text/slider/checkbox controls. Media (images, footage, GIFs) requires pipeline mode (`essential.set`) which isn't exposed via CLI.
+**Not supported yet.** A data column that maps to a media control stops `check` and `render` before rendering with error `E_MEDIA_UNSUPPORTED` (exit code 3). A media control with no data column keeps the template's default media. EffectCraft's `--values` cannot replace media (verified: it fails with `invalid parameters for prop.set: can't use ... for a scalar property`). EffectCraft's `essential.set` engine command accepts a media `item`, but lakreet-swarm does not use it. Whether a per-row pipeline is feasible and fast enough has not been evaluated. Status: planned, not scheduled.
 
 - [Media guide](/swarm/guides/media) — status & workarounds
 - [Control types](/swarm/reference/control-types) — planned media type
@@ -28,11 +28,11 @@ Honest list of what lakreet-swarm **cannot** do in v0.2.0.
 | slider    | Opacity, Position, Scale, Rotation |
 | checkbox  | Checkbox Control                   |
 
-| Not supported | Status                      |
-| ------------- | --------------------------- |
-| color         | Planned                     |
-| point         | Planned                     |
-| media         | Planned (requires upstream) |
+| Not supported | Status                  |
+| ------------- | ----------------------- |
+| color         | Planned                 |
+| point         | Planned                 |
+| media         | Planned (not scheduled) |
 
 Unknown types fall back to text (no crash, but may not work as intended).
 

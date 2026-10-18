@@ -30,7 +30,6 @@ verified:
 | `columns`        | object  | `{}`                | CSV header → control name mapping                      |
 | `render`         | object  | `{}`                | Render options (format, quality, resolution, etc.)     |
 | `jobs`           | number  | `1`                 | Reserved (not implemented)                             |
-| `mediaDir`       | string  | `null`              | Base folder for relative media paths                   |
 | `delimiter`      | string  | `null`              | Force CSV delimiter (`,`, `;`, `\t`)                   |
 | `keepValues`     | boolean | `false`             | Keep per-row `.values.json` files                      |
 | `emptyAsDefault` | boolean | `false`             | Empty text cells → template default                    |
@@ -62,15 +61,13 @@ Same keys as CLI flags (without `--`).
   "name": "{index:3}-{slug:Episode Title}",
   "columns": {
     "Guest Name": "Source Text",
-    "Guest Title": "Title",
-    "Logo Path": "Logo"
+    "Guest Title": "Title"
   },
   "render": {
-    "format": "webm",
+    "format": "h264",
     "quality": "best",
     "resolution": "half"
   },
-  "mediaDir": "assets",
   "delimiter": ";",
   "keepValues": true,
   "emptyAsDefault": true

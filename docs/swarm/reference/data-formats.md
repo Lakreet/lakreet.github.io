@@ -118,13 +118,13 @@ One JSON object per line. Ideal for large datasets.
 
 ## Validation rules (all formats)
 
-| Rule                     | Error example                       |
-| ------------------------ | ----------------------------------- |
-| Column matches control   | `Column "Foo" is not a control`     |
-| Slider = finite number   | `"abc" is not a number`             |
-| Checkbox = boolean       | `"yes" is not a boolean`            |
-| Media file exists        | `file not found: /path/missing.png` |
-| Required columns present | `column "Source Text" is required`  |
+| Rule                     | Error example                            |
+| ------------------------ | ---------------------------------------- |
+| Column matches control   | `Column "Foo" is not a control`          |
+| Slider = finite number   | `"abc" is not a number`                  |
+| Checkbox = boolean       | `"yes" is not a boolean`                 |
+| Media control present    | `media replacement is not supported yet` |
+| Required columns present | `column "Source Text" is required`       |
 
 ## Next steps
 

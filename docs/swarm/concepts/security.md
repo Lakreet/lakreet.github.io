@@ -30,18 +30,18 @@ execFile('sh', ['-c', `render --template ${tpl}`], ...)
 
 ## Trust model
 
-| Component              | Trust level     | Reason                                                          |
-| ---------------------- | --------------- | --------------------------------------------------------------- |
-| Template (.ectemplate) | Trusted         | Contains full EffectCraft project; only run templates you trust |
-| Data file (CSV/JSON)   | Untrusted input | Validated, coerced, sanitized before use                        |
-| Media files            | Untrusted input | Paths validated against --media-dir base                        |
-| EffectCraft CLI        | Trusted         | Local binary, same trust as any installed app                   |
+| Component              | Trust level     | Reason                                                                                               |
+| ---------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
+| Template (.ectemplate) | Trusted         | Contains full EffectCraft project; only run templates you trust                                      |
+| Data file (CSV/JSON)   | Untrusted input | Validated, coerced, sanitized before use                                                             |
+| Media files            | Not processed   | Media replacement is not supported; a media control without a data column keeps the template default |
+| EffectCraft CLI        | Trusted         | Local binary, same trust as any installed app                                                        |
 
 ## Data validation as security
 
 - Every row validated before render
 - Type coercion with strict rules (no silent corruption)
-- Media paths resolved against mediaDir base (no path traversal)
+- A data column that maps to a media control is rejected before render
 - Output names sanitized (Windows reserved names, invalid chars)
 
 ## CSV generator privacy

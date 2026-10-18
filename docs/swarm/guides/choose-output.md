@@ -24,21 +24,11 @@ Default: `out/`
 ## Format: --format
 
 ```bash
-# H.264 MP4 (default)
+# H.264 MP4 (default, verified)
 --format h264
-
-# WebM (VP9)
---format webm
-
-# Image sequences
---format png
---format jpeg
-
-# Animated formats
---format gif
 ```
 
-Available formats depend on EffectCraft version. Run `effectcraft-cli --help` for full list.
+The CLI help also lists `webm`, `png`, `jpeg`, and `gif`. **Only `h264` has been verified.** The other values are untested; confirm them on your machine with `effectcraft-cli --help`.
 
 ## Quality: --quality
 
@@ -136,7 +126,7 @@ Set defaults in `lakreet.config.json`:
   "out": "dist",
   "name": "{index:3}-{slug:Source Text}",
   "render": {
-    "format": "webm",
+    "format": "h264",
     "quality": "best",
     "resolution": "full"
   }

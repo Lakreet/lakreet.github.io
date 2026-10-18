@@ -13,15 +13,15 @@ verified:
 
 # Exit codes
 
-| Code | Constant              | Meaning             | When |
-| ---- | --------------------- | ------------------- | ---- |
-| 0    | `OK`                  | ok                  |      |
-| 1    | `RENDER_FAILED`       | render failed       |      |
-| 2    | `USAGE`               | usage               |      |
-| 3    | `DATA_INVALID`        | data invalid        |      |
-| 4    | `CLI_NOT_FOUND`       | cli not found       |      |
-| 5    | `TEMPLATE_UNREADABLE` | template unreadable |      |
-| 130  | `INTERRUPTED`         | interrupted         |      |
+| Code | Constant | Meaning | When |
+|------|----------|---------|------|
+| 0 | `OK` | ok | |
+| 1 | `RENDER_FAILED` | render failed | |
+| 2 | `USAGE` | usage | |
+| 3 | `DATA_INVALID` | data invalid | |
+| 4 | `CLI_NOT_FOUND` | cli not found | |
+| 5 | `TEMPLATE_UNREADABLE` | template unreadable | |
+| 130 | `INTERRUPTED` | interrupted | |
 
 ## Usage in scripts
 

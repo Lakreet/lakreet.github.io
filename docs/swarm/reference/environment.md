@@ -59,7 +59,6 @@ lakreet-swarm finds `effectcraft-cli` in this order:
 ## File paths
 
 - Relative paths resolved from **current working directory**
-- `--media-dir` base for relative media paths in CSV
 - Output folder (`--out`) created if missing
 
 ## Next steps

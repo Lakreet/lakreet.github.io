@@ -70,9 +70,11 @@ If EffectCraft adds new control types, lakreet-swarm falls back to `text` so ren
 
 ## Media
 
-Media entries in the manifest represent footage/images used in the template. lakreet-swarm validates that media files exist at render time (via CSV column or `--media-dir`).
+Media entries in the manifest represent footage/images used in the template.
 
-> **Important:** Media replacement works through EffectCraft's **pipeline mode** (`essential.set`), not via `--values`. The actual swap happens during render. lakreet-swarm validates paths up-front; EffectCraft performs the swap.
+Media replacement is **not supported yet**. A data column that maps to a media control stops `check` and `render` before rendering with error `E_MEDIA_UNSUPPORTED` (exit code 3). A media control with no data column keeps the template's default media.
+
+EffectCraft's `--values` cannot replace media. EffectCraft's `essential.set` engine command (reachable through `effectcraft-cli exec`) accepts a media `item`, but lakreet-swarm does not use it. Whether a per-row pipeline (load the template into a project, set the media item, render the project) is feasible and fast enough has not been evaluated. Status: planned, not scheduled. See [Media guide](/swarm/guides/media).
 
 ## poster.png
 

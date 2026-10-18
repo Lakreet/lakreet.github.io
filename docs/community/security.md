@@ -30,7 +30,7 @@ We aim to respond within 72 hours.
 
 - No shell execution (array args only)
 - Input validation on all data
-- Path traversal protection (mediaDir base)
+- Path traversal protection
 - No external network calls (except EffectCraft CLI)
 - No analytics, no tracking
 

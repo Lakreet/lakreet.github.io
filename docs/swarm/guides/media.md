@@ -1,54 +1,39 @@
 ---
 title: Images, GIFs and footage
-description: Media replacement is not yet available. Current status, reason (EffectCraft --values does not replace media), planned work, and link to tracking issue.
+description: Media replacement is not supported yet. What happens today, why, and the planned (not scheduled) approach.
 type: how-to
 status: planned
 since: 0.2.0
+verified:
+  swarm: 0.2.0
+  effectcraft: 0.8.0
 ---
 
 # Images, GIFs and footage
 
 > **Status: Planned — not available in v0.2.0**
 
-## Current limitation
+## What happens today
 
-EffectCraft's `--values` flag **does not replace media** (images, videos, GIFs). It only drives text, slider, and checkbox controls.
+Media replacement is not supported in lakreet-swarm.
 
-Media replacement requires EffectCraft's **pipeline mode** (`essential.set`), which is a different code path not yet exposed via CLI in a way lakreet-swarm can use.
+- A data column that maps to a media control stops `check` and `render` before rendering with error `E_MEDIA_UNSUPPORTED` (exit code 3).
+- A media control with no data column keeps the template's default media.
 
-## What works today
+EffectCraft's `--values` cannot replace media. Verified: it fails with `invalid parameters for prop.set: can't use ... for a scalar property`.
 
-- Media **validation**: lakreet-swarm checks that media file paths exist (via CSV column or `--media-dir`)
-- Media **references** in template: manifest lists media placeholders
-- Static media: Footage/images baked into the template render as-is
+## Planned, not scheduled
 
-## What doesn't work
-
-| Feature                                                 | Status           |
-| ------------------------------------------------------- | ---------------- |
-| Swap image per row (e.g., different logo per video)     | ❌ Not supported |
-| Swap footage per row (e.g., different background video) | ❌ Not supported |
-| Swap GIF per row                                        | ❌ Not supported |
-| Dynamic media via CSV column                            | ❌ Not supported |
+EffectCraft has an engine command `essential.set` (reachable through `effectcraft-cli exec`) that accepts a media `item`. lakreet-swarm does not use it. Whether a per-row pipeline (load the template into a project, set the media item, render the project) is feasible and fast enough has not been evaluated.
 
 ## Workarounds
 
-1. **Multiple templates** — One template per media variant, render separately
-2. **Post-process** — Render with placeholder, replace media in post (ffmpeg, etc.)
-3. **Single template, no media swap** — Use static media only
-
-## Planned
-
-Track progress: [GitHub Issue #XXX](https://github.com/Lakreet/lakreet-swarm/issues/XXX) (to be created)
-
-Planned approach:
-
-1. Add `essential.set` support to `effectcraft-cli` (upstream)
-2. Extend lakreet-swarm to use pipeline mode for media rows
-3. Add `media` control type with file path validation
+- Use one template per media variant and render them separately.
+- Render with the template's default media and replace it in post-production.
+- Use text, number, and checkbox controls only.
 
 ## Next steps
 
-- [Templates concept](/swarm/concepts/templates) — media in manifest
-- [Control types reference](/swarm/reference/control-types) — planned media type
-- [GitHub Issues](https://github.com/Lakreet/lakreet-swarm/issues) — watch for updates
+- [Limitations](/swarm/concepts/limitations) — current gaps
+- [Control types](/swarm/reference/control-types) — supported and planned types
+- [GitHub Issues](https://github.com/Lakreet/lakreet-swarm/issues) — track feature requests

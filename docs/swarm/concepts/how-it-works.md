@@ -32,7 +32,7 @@ flowchart TD
 | Phase           | Action                                                                        |
 | --------------- | ----------------------------------------------------------------------------- |
 | **1. Load**     | Read template (via `effectcraft-cli inspect`), read data file                 |
-| **2. Validate** | Check every row against controls: types, required fields, media paths         |
+| **2. Validate** | Check every row against controls: types, required fields, media controls      |
 | **3. Map**      | Apply column mapping (`lakreet.config.json` → `columns`)                      |
 | **4. Select**   | Filter rows (`--only`, `--limit`, `--skip-existing`)                          |
 | **5. Render**   | Sequential loop: write `.values.json` → spawn `effectcraft-cli render` → wait |
@@ -63,7 +63,7 @@ This is passed to EffectCraft via `--values` flag.
 
 | Command   | EffectCraft subcommand | Output                       |
 | --------- | ---------------------- | ---------------------------- |
-| `render`  | `render`               | Full video (MP4, WebM, etc.) |
+| `render`  | `render`               | Full video (MP4)             |
 | `preview` | `render-frame`         | Single PNG frame at `--time` |
 
 ## Concurrency

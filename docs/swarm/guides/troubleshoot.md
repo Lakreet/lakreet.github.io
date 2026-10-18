@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot
-description: Common symptoms, causes, and fixes for PATH issues, quoting, unknown columns, type errors, missing media, template unreadable, render failures; how to attach doctor output to issues.
+description: Common symptoms, causes, and fixes for PATH issues, quoting, unknown columns, type errors, unsupported media, template unreadable, render failures; how to attach doctor output to issues.
 type: how-to
 status: stable
 since: 0.2.0
@@ -23,7 +23,7 @@ Quick diagnosis table for common issues.
 | `Column "Foo" is not a control`                                               | CSV header ≠ control name                | Fix header, or add `columns` mapping in config                        |
 | `Column "Opacity": "abc" is not a number`                                     | Slider expects number                    | Fix CSV: use numeric values only                                      |
 | `Column "Visible": "yes" is not a boolean`                                    | Checkbox expects boolean                 | Use true/false/yes/no/1/0/ya/tidak                                    |
-| `file not found: /path/to/logo.png`                                           | Media path wrong                         | Fix path in CSV, or set `--media-dir` / config `mediaDir`             |
+| `media replacement is not supported yet` (E_MEDIA_UNSUPPORTED)                | Data column maps to a media control      | Remove the media column, or use text/number/checkbox controls         |
 | `Template has no controls to export`                                          | No Essential Graphics properties         | Add properties to Essential Graphics in EffectCraft                   |
 | `Manifest version X is not version 1`                                         | EffectCraft version mismatch             | Update lakreet-swarm or EffectCraft; check `doctor`                   |
 | `Render failed: EffectCraft process exited with code 1`                       | EffectCraft internal error               | Check template for expressions/effects that fail; try `preview` first |

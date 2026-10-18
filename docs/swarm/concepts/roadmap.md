@@ -15,7 +15,7 @@ High-level direction for lakreet-swarm. Not a commitment — priorities shift ba
 
 ## v0.3 (near term)
 
-- **Media replacement** — pipeline mode integration for image/footage swap per row
+- **Media replacement** — planned, not scheduled; would need a per-row pipeline using EffectCraft's `essential.set` engine command (feasibility and speed not evaluated)
 - **Color & point control types** — full coercion + validation
 - **Config file v2** — schema versioning, migrations
 - **Plugin system** — hooks for custom validators, namers, reporters

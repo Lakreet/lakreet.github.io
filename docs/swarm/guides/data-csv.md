@@ -97,7 +97,14 @@ Validation errors always include the **CSV line number** (1-based, header = line
 ```
 Found 2 problem(s) in data.csv:
 - Line 5, column "Opacity": "abc" is not a number.
-- Line 8, column "Logo": file not found: /path/to/missing.png
+- Line 8, column "Source Text": column "Source Text" is required.
+```
+
+A column that maps to a media control stops validation before any problem list:
+
+```
+Column "Logo" maps to a media control; media replacement is not supported yet.
+  Hint: Use text, number or checkbox controls for now, or remove the column.
 ```
 
 ## Validation before render

@@ -26,7 +26,7 @@ Create an EffectCraft template (`.ectemplate`) with controls that lakreet-swarm 
 
 ## Step 2: Add layers to personalize
 
-Add text layers, shape layers, or footage that you want to vary per video.
+Add text layers or shape layers that you want to vary per video.
 
 **Example:** A lower-third with a name and title.
 
@@ -44,7 +44,7 @@ For each property you want to control from CSV/JSON:
 **Control naming matters:**
 
 - The name in Essential Graphics **must match** your CSV column header (or use [column mapping](/swarm/guides/map-columns))
-- Use clear names: `Source Text`, `Opacity`, `Logo`, `Background Color`
+- Use clear names: `Source Text`, `Opacity`, `Title`, `Scale`
 
 ## Step 4: Export as .ectemplate
 
@@ -111,15 +111,15 @@ lakreet-swarm inspect my-template.ectemplate --json
 | `slider`   | Opacity, Position, Scale, Rotation | Numbers only                                      |
 | `checkbox` | Checkbox Control                   | `true`/`false`, `yes`/`no`, `1`/`0`, `ya`/`tidak` |
 
-> **Planned:** `color`, `point`, `media` — not yet supported in EffectCraft pipeline.
+> **Planned:** `color`, `point`, `media` — not supported yet. `media` is rejected with `E_MEDIA_UNSUPPORTED`.
 
 ## Common pitfalls
 
-| Issue                            | Fix                                                                                                                         |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Control not showing in `inspect` | Re-export template after adding to Essential Graphics                                                                       |
-| "Column X is not a control"      | Match CSV header exactly to control name, or use `columns` mapping in config                                                |
-| Media not replaceable            | Media replacement uses EffectCraft pipeline mode (`essential.set`), not `--values`. See [Media guide](/swarm/guides/media). |
+| Issue                            | Fix                                                                                                                     |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Control not showing in `inspect` | Re-export template after adding to Essential Graphics                                                                   |
+| "Column X is not a control"      | Match CSV header exactly to control name, or use `columns` mapping in config                                            |
+| Media not replaceable            | A data column mapped to a media control is rejected with `E_MEDIA_UNSUPPORTED`. See [Media guide](/swarm/guides/media). |
 
 ## Next steps
 

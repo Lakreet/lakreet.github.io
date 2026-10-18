@@ -50,14 +50,14 @@ out/CERT-CRT-2026-003-andi-wijaya.mp4
 
 ## Variations
 
-| Variation     | Change                               |
-| ------------- | ------------------------------------ |
-| Award         | Add `Award Title`, `Presenter Name`  |
-| Compliance    | Add `Expiry Date`, `Regulation Code` |
-| Digital badge | Export as PNG (use `--format png`)   |
+| Variation     | Change                                              |
+| ------------- | --------------------------------------------------- |
+| Award         | Add `Award Title`, `Presenter Name`                 |
+| Compliance    | Add `Expiry Date`, `Regulation Code`                |
+| Digital badge | Export a still image; only `h264` has been verified |
 
 ## Next steps
 
 - [Naming patterns](/swarm/reference/naming-patterns) — custom tokens
-- [Choose output](/swarm/guides/choose-output) — PNG for badges
+- [Choose output](/swarm/guides/choose-output) — output formats
 - [Validate first](/swarm/guides/validate-first) — check data

@@ -25,7 +25,7 @@ lakreet-swarm validates **every row** before rendering a single frame. This is a
 ## Validation model
 
 ```
-Data file -> Parse -> Map columns -> Coerce types -> Check media -> All errors or valid rows
+Data file -> Parse -> Map columns -> Coerce types -> Check media controls -> All errors or valid rows
 ```
 
 Every step runs for **all rows** before any render.
@@ -35,10 +35,16 @@ Every step runs for **all rows** before any render.
 Errors include **exact location**:
 
 ```
-Found 3 problem(s) in data.csv:
+Found 2 problem(s) in data.csv:
 - Line 5, column "Opacity": "abc" is not a number.
 - Line 8, column "Source Text": column "Source Text" is required.
-- Line 12, column "Logo": file not found: /assets/missing.png
+```
+
+A column that maps to a media control stops validation before any problem list:
+
+```
+Column "Logo" maps to a media control; media replacement is not supported yet.
+  Hint: Use text, number or checkbox controls for now, or remove the column.
 ```
 
 - Line numbers: 1-based, header = line 1 (CSV) or item number (JSON/JSONL)
@@ -57,19 +63,15 @@ Found 3 problem(s) in data.csv:
 
 Unknown types -> fallback to text (no hard failure).
 
-## Media validation
+## Media controls
 
-Media columns validated as file paths:
-
-- Relative paths resolved against data file folder or --media-dir
-- Existence checked
-- Warnings for suspicious paths (outside mediaDir)
+Media replacement is not supported yet. A data column that maps to a media control stops `check` and `render` before rendering with error `E_MEDIA_UNSUPPORTED` (exit code 3). A media control with no data column keeps the template's default media.
 
 ## Warnings vs errors
 
 | Level   | Example                                     | Behavior                          |
 | ------- | ------------------------------------------- | --------------------------------- |
-| Error   | Type mismatch, missing file                 | Blocks render, exit code 3        |
+| Error   | Type mismatch, unsupported media control    | Blocks render, exit code 3        |
 | Warning | Unknown manifest version, deprecated column | Logged to stderr, render proceeds |
 
 ## Programmatic API

@@ -51,13 +51,13 @@ Non-TTY: Rendering 100 row(s)... [12/100] 12-row  ETA: 4m
 
 ## Factors affecting performance
 
-| Factor              | Impact                                          |
-| ------------------- | ----------------------------------------------- |
-| Template complexity | More layers/effects = slower                    |
-| Resolution          | 4K ~4x slower than 1080p                        |
-| Codec               | H.264 faster than WebM/VP9                      |
-| Disk speed          | NVMe > SSD > HDD for temp files                 |
-| GPU                 | Hardware encode (NVENC/QuickSync) major speedup |
+| Factor              | Impact                                            |
+| ------------------- | ------------------------------------------------- |
+| Template complexity | More layers/effects = slower                      |
+| Resolution          | 4K ~4x slower than 1080p                          |
+| Codec               | Hardware/codec dependent — verify on your machine |
+| Disk speed          | NVMe > SSD > HDD for temp files                   |
+| GPU                 | Hardware encode (NVENC/QuickSync) major speedup   |
 
 ## Optimization tips
 

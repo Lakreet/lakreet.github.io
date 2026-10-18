@@ -13,7 +13,7 @@ verified:
 
 Render many videos from one [EffectCraft](https://github.com/storytold/effectcraft) template and a CSV/JSON file.
 
-You design a video once in EffectCraft, mark the parts that should change (a title, an opacity, a media file, …), and `lakreet-swarm` renders one video per row of your data file. No window, no clicking, no editing each copy by hand.
+You design a video once in EffectCraft, mark the parts that should change (a title, an opacity, …), and `lakreet-swarm` renders one video per row of your data file. No window, no clicking, no editing each copy by hand.
 
 > **Unofficial.** lakreet-swarm is an independent project. It is not affiliated with, sponsored by, or endorsed by the Storytold team or the EffectCraft project. It only calls the `effectcraft-cli` program that ships with EffectCraft.
 

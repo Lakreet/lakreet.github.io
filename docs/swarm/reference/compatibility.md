@@ -17,28 +17,38 @@ Tested version matrix from `compat.json`. `lakreet-swarm doctor` warns if your E
 
 ## Tested combinations (v0.2.0)
 
-| lakreet-swarm | EffectCraft | Node       | OS                                     |
-| ------------- | ----------- | ---------- | -------------------------------------- |
-| 0.2.0         | 0.8.0       | 20, 22, 24 | Windows (win32), Linux, macOS (darwin) |
+| lakreet-swarm | EffectCraft | Node | OS |
+|---------------|-------------|------|-----|
+| 0.2.0 | 0.8.0 | 20, 22, 24 | Windows (win32), Linux, macOS (darwin) |
 
 ## compat.json
 
 ```json
 {
-  "testedEffectCraft": ["0.8.0"],
-  "testedNode": ["20", "22", "24"],
-  "testedOS": ["win32", "linux", "darwin"],
+  "testedEffectCraft": [
+    "0.8.0"
+  ],
+  "testedNode": [
+    "20",
+    "22",
+    "24"
+  ],
+  "testedOS": [
+    "win32",
+    "linux",
+    "darwin"
+  ],
   "notes": "EffectCraft moves fast. Re-run `npm run smoke` against a new EffectCraft release and add the version here."
 }
 ```
 
 ## Version status
 
-| Status         | Meaning                                                      |
-| -------------- | ------------------------------------------------------------ |
-| **Tested**     | Listed in compat.json, CI passes                             |
+| Status | Meaning |
+|--------|---------|
+| **Tested** | Listed in compat.json, CI passes |
 | **Compatible** | Not listed, but doctor passes (no breaking changes detected) |
-| **Untested**   | Not listed, doctor warns                                     |
+| **Untested** | Not listed, doctor warns |
 
 Run `lakreet-swarm doctor` to check your environment:
 

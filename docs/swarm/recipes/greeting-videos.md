@@ -51,11 +51,11 @@ out/004-rina.mp4
 
 ## Variations
 
-| Variation   | Change                                        |
-| ----------- | --------------------------------------------- |
-| Birthday    | Add Birth Date text control                   |
-| Anniversary | Add Years slider                              |
-| Corporate   | Add Company text, Logo media (when supported) |
+| Variation   | Change                                                  |
+| ----------- | ------------------------------------------------------- |
+| Birthday    | Add Birth Date text control                             |
+| Anniversary | Add Years slider                                        |
+| Corporate   | Add `Company` text (a per-row logo is not possible yet) |
 
 ## Next steps
 

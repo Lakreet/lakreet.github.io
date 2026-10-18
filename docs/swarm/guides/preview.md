@@ -85,7 +85,6 @@ When multiple rows, an `index.html` is generated:
 ## Use cases
 
 - Verify text positioning, font size, colors
-- Check media replacement (when available)
 - Quick visual QA before batch render
 - Share gallery with stakeholders
 
