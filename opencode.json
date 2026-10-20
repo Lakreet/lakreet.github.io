@@ -1,4 +1,20 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["internal/STYLE.md", "internal/DESIGN.md"]
+  "providers": {
+    "9router": {
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://localhost:20128/v1",
+        "apiKey": "sk-ea2de44f0c598912-6xd7p1-8af0aecb"
+      },
+      "options": {
+        "thinking": false
+      },
+      "models": {
+        "free-pass": {
+          "name": "free-pass"
+        }
+      }
+    }
+  }
 }

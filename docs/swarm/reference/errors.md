@@ -17,10 +17,10 @@ Complete error catalog from `src/errors.js`. Every user-facing failure is a `Swa
 
 ## Error catalog
 
-| Code | Exit code | Cause | Example message | Hint |
-|------|-----------|-------|-----------------|------|
-| `E_USAGE` | USAGE | usage | `[varies]` | Run with --help to see the correct usage. |
-| `E_RENDER_FAILED` | RENDER_FAILED | render failed | `[varies]` | See the render log above. |
+| Code              | Exit code     | Cause         | Example message | Hint                                      |
+| ----------------- | ------------- | ------------- | --------------- | ----------------------------------------- |
+| `E_USAGE`         | USAGE         | usage         | `[varies]`      | Run with --help to see the correct usage. |
+| `E_RENDER_FAILED` | RENDER_FAILED | render failed | `[varies]`      | See the render log above.                 |
 
 ## Error format
 
@@ -30,6 +30,7 @@ Error message
 ```
 
 Example:
+
 ```
 Found 2 problem(s) in data.csv:
 - Line 5, column "Opacity": "abc" is not a number.

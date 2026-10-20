@@ -165,12 +165,21 @@ function checkFile(filePath) {
   return true;
 }
 
-function getAllMdFiles(dir) {
+function getAllMdFiles(dir, relativeTo = docsDir) {
   const files = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const fullPath = join(dir, entry.name);
     if (entry.isDirectory()) {
-      files.push(...getAllMdFiles(fullPath));
+      // Skip build output and asset folders: not documentation pages.
+      const relToDocs = relative(relativeTo, fullPath);
+      if (
+        relToDocs === join(".vitepress", "dist") ||
+        relToDocs === join(".vitepress", "cache") ||
+        relToDocs === "public"
+      ) {
+        continue;
+      }
+      files.push(...getAllMdFiles(fullPath, relativeTo));
     } else if (entry.isFile() && extname(entry.name) === ".md") {
       files.push(fullPath);
     }

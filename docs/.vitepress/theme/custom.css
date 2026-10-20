@@ -1,26 +1,31 @@
 :root {
-  /* Brand colors - Lakreet blue */
-  --vp-c-brand-1: #1659c4;
-  --vp-c-brand-2: #2d81ff;
-  --vp-c-brand-3: #0d3d8a;
-  --vp-c-brand-soft: #e8f0fe;
+  /* Mint theme (maintainer palette): Frozen Mint #DDF8F1, Emerald Teal #008573.
+     Derived tones use color-mix from the two base colors. */
+  --lk-mint: #ddf8f1;
+  --lk-teal: #008573;
+
+  /* Brand colors — Emerald Teal / Frozen Mint */
+  --vp-c-brand-1: #008573;
+  --vp-c-brand-2: color-mix(in srgb, #008573 88%, #000000);
+  --vp-c-brand-3: color-mix(in srgb, #008573 75%, #000000);
+  --vp-c-brand-soft: #ddf8f1;
 
   /* Background colors */
   --vp-c-bg: #ffffff;
-  --vp-c-bg-soft: #f2f1ee;
-  --vp-c-bg-alt: #e9e8e4;
+  --vp-c-bg-soft: color-mix(in srgb, #ddf8f1 45%, #ffffff);
+  --vp-c-bg-alt: #ddf8f1;
 
   /* Text colors */
   --vp-c-text-1: #101014;
   --vp-c-text-2: #1010149e;
   --vp-c-text-3: #1010146b;
 
-  /* Border colors */
-  --vp-c-divider: #10101429;
-  --vp-c-divider-light: #10101414;
+  /* Border colors — teal-tinted */
+  --vp-c-divider: color-mix(in srgb, #008573 22%, transparent);
+  --vp-c-divider-light: color-mix(in srgb, #008573 12%, transparent);
 
   /* Status colors */
-  --vp-c-success: #2d81ff;
+  --vp-c-success: #008573;
   --vp-c-warning: #ffb300;
   --vp-c-danger: #b3261e;
 
@@ -47,7 +52,7 @@
 
   /* Shadows */
   --vp-shadow-sm: inset 0 0 0 2px var(--vp-c-divider);
-  --vp-shadow-md: rgb(45, 129, 255) 0px 0px 6px 0px;
+  --vp-shadow-md: 0 0 6px 0 color-mix(in srgb, #008573 55%, transparent);
 
   /* Transitions */
   --vp-transition-fast: 150ms ease-out;
@@ -56,11 +61,11 @@
 }
 
 .dark {
-  /* Brand colors - Lakreet blue (adjusted for dark mode) */
-  --vp-c-brand-1: #74aaff;
-  --vp-c-brand-2: #a8caff;
-  --vp-c-brand-3: #4d8fff;
-  --vp-c-brand-soft: #1a2e4a;
+  /* Brand colors — mint-teal raised for dark surfaces (≥ 8:1 on #121316) */
+  --vp-c-brand-1: color-mix(in srgb, #ddf8f1 55%, #008573);
+  --vp-c-brand-2: color-mix(in srgb, #ddf8f1 72%, #008573);
+  --vp-c-brand-3: color-mix(in srgb, #ddf8f1 42%, #008573);
+  --vp-c-brand-soft: color-mix(in srgb, #008573 26%, #000000);
 
   /* Background colors */
   --vp-c-bg: #121316;
@@ -77,7 +82,7 @@
   --vp-c-divider-light: #f2f1ee14;
 
   /* Status colors */
-  --vp-c-success: #74aaff;
+  --vp-c-success: color-mix(in srgb, #ddf8f1 60%, #008573);
   --vp-c-warning: #ffcc00;
   --vp-c-danger: #ff6259;
 }
@@ -201,4 +206,115 @@
   color: var(--vp-c-text-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* ---------------------------------------------------------------------
+   Landing page (docs/index.md) — teal plate navbar over the hero.
+   Scoped with html.is-home (toggled by theme/components/HomeFlag.vue)
+   so docs pages keep the default navbar.
+   --------------------------------------------------------------------- */
+html.is-home {
+  /* Navbar: solid deep teal, no blur scrim (design system: no blur) */
+  --vp-nav-bg-color: #008573;
+  overflow-x: clip;
+}
+
+html.is-home .VPNavBar,
+html.is-home .VPNavBar .title,
+html.is-home .VPNavBar .divider {
+  background-color: #008573;
+}
+html.is-home .VPNavBar .divider {
+  border-bottom-color: color-mix(in srgb, #ddf8f1 16%, #008573);
+}
+html.is-home .VPNavBar .divider-line {
+  background-color: transparent;
+}
+html.is-home .VPNavBar .title,
+html.is-home .VPNavBarMenu,
+html.is-home .VPNavBarMenu .menu-text,
+html.is-home .VPNavBarMenuLink {
+  color: #ffffff;
+}
+html.is-home .VPNavBarMenuLink:hover,
+html.is-home .VPNavBarMenuLink:focus-visible {
+  color: #ddf8f1;
+}
+/* Social icons and the mobile menu button */
+html.is-home .VPNavBarSocialLink,
+html.is-home .VPNavBarHamburger .hamburger {
+  color: #ffffff;
+}
+html.is-home .VPNavBarHamburger.bar::before,
+html.is-home .VPNavBarHamburger.bar::after {
+  background-color: #ffffff;
+}
+html.is-home .VPNavBarExtra,
+html.is-home .VPLocalNav {
+  color: #ffffff;
+  background-color: #008573;
+}
+html.is-home .VPNavBarMenuLink .VPNavBarTitle .title span {
+  color: #ffffff;
+}
+/* Hide the default VitePress footer on the landing page: the landing
+   component ships its own disclaimer strip (frontmatter sets footer:false). */
+
+/* ---------------------------------------------------------------------
+   Self-hosted open-licensed fonts (SIL OFL), downloaded by
+   scripts/fetch-fonts.mjs. Sources: Oswald, Inter, JetBrains Mono.
+   --------------------------------------------------------------------- */
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }

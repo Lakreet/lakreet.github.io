@@ -15,17 +15,13 @@ lakreet-swarm orchestrates **batch rendering** by driving EffectCraft's CLI (`ef
 
 ## The pipeline
 
-```mermaid
-flowchart TD
-    A[EffectCraft Template\n.ectemplate] --> B[lakreet-swarm]
-    C[Data File\nCSV / JSON / JSONL] --> B
-    B --> D[Validate all rows]
-    D --> E[For each row:\n1. Build values JSON\n2. Call effectcraft-cli render\n3. Collect output]
-    E --> F[Video 1]
-    E --> G[Video 2]
-    E --> H[Video N]
-    E --> I[report.json\nreport.csv]
-```
+![Three teal plates pinned with pushpins and joined by a string — template, data and video — over a mint dot grid.](/img/concepts/flow-template-data-video.svg)
+
+One `.ectemplate` plus one data file is all lakreet-swarm needs: it reads both, validates every row, and drives `effectcraft-cli` once per row.
+
+## One batch, four passes
+
+![Editorial checklist of one batch: check validates every row, values map columns to controls, render creates one video per row, report writes report.json and report.csv.](/img/concepts/batch-flow.svg)
 
 ## What lakreet-swarm does
 

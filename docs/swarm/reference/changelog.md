@@ -69,4 +69,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial prototype: reads CSV, calls EffectCraft CLI per row, writes MP4s
 - Basic progress bar
 - `safeName` for Windows-safe filenames
-

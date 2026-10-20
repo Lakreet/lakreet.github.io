@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Plugin } from "../../data/plugins.json";
+import type { Plugin } from "../../public/data/plugins.json";
 
 interface Props {
   plugin: Plugin;

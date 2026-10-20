@@ -22,6 +22,8 @@ my-template.ectemplate (ZIP)
 └── poster.png         # Thumbnail (1920×1080 typical)
 ```
 
+![Dark panel with three vertical strips showing the files inside an .ectemplate archive: manifest.json (controls and composition info), project.ecproj (the entire EffectCraft project) and poster.png (the thumbnail preview).](/img/concepts/ectemplate-anatomy.svg)
+
 ## manifest.json
 
 The manifest is what lakreet-swarm reads to discover controls and media.

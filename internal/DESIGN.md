@@ -1,26 +1,28 @@
 # Lakreet design tokens
 
 > Decisions made by the maintainer. Reference sites were studied for structure only; no values are copied from a single site.
+>
+> **2026-10-20:** switched the palette to the maintainer's mint theme: **Frozen Mint `#DDF8F1`** (light surfaces) and **Emerald Teal `#008573`** (brand/plates). All other tones below are `color-mix` derivatives of these two plus ink/white. Landing surfaces additionally use a deep teal plate (`color-mix(in srgb, #008573 90%, #000000)`) so white label text passes 4.5:1.
 
 ## Color (light / dark)
 
-| token         | light     | dark      | use                                    |
-| ------------- | --------- | --------- | -------------------------------------- |
-| brand         | #1659c4   | #74aaff   | links, primary buttons                 |
-| brand-hover   | #2d81ff   | #a8caff   | hover state                            |
-| brand-pressed | #0d3d8a   | #4d8fff   | active/pressed state                   |
-| brand-soft    | #e8f0fe   | #1a2e4a   | soft backgrounds for brand elements    |
-| bg            | #ffffff   | #121316   | page background                        |
-| bg-soft       | #f2f1ee   | #101014   | cards, code blocks, secondary surfaces |
-| bg-alt        | #e9e8e4   | #060607   | tertiary surfaces, dividers            |
-| text          | #101014   | #f2f1ee   | body text                              |
-| text-muted    | #1010149e | #f2f1ee99 | secondary text, captions               |
-| text-faint    | #1010146b | #f2f1ee61 | placeholder text, disabled text        |
-| border        | #10101429 | #f2f1ee26 | dividers, card borders                 |
-| border-light  | #10101414 | #f2f1ee14 | subtle dividers                        |
-| success       | #2d81ff   | #74aaff   | success states, positive indicators    |
-| warning       | #ffb300   | #ffcc00   | warning states                         |
-| danger        | #b3261e   | #ff6259   | error states, destructive actions      |
+| token         | light                           | dark                          | use                                    |
+| ------------- | ------------------------------- | ----------------------------- | -------------------------------------- |
+| brand         | #008573                         | mix(`#ddf8f1` 55%, `#008573`) | links, primary buttons                 |
+| brand-hover   | mix(`#008573` 88%, black)       | mix(`#ddf8f1` 72%, `#008573`) | hover state                            |
+| brand-pressed | mix(`#008573` 75%, black)       | mix(`#ddf8f1` 42%, `#008573`) | active/pressed state                   |
+| brand-soft    | #ddf8f1                         | mix(`#008573` 26%, black)     | soft backgrounds for brand elements    |
+| bg            | #ffffff                         | #121316                       | page background                        |
+| bg-soft       | mix(`#ddf8f1` 45%, white)       | #101014                       | cards, code blocks, secondary surfaces |
+| bg-alt        | #ddf8f1                         | #060607                       | tertiary surfaces, dividers            |
+| text          | #101014                         | #f2f1ee                       | body text                              |
+| text-muted    | #1010149e                       | #f2f1ee99                     | secondary text, captions               |
+| text-faint    | #1010146b                       | #f2f1ee61                     | placeholder text, disabled text        |
+| border        | mix(`#008573` 22%, transparent) | #f2f1ee26                     | dividers, card borders                 |
+| border-light  | mix(`#008573` 12%, transparent) | #f2f1ee14                     | subtle dividers                        |
+| success       | #008573                         | mix(`#ddf8f1` 60%, `#008573`) | success states, positive indicators    |
+| warning       | #ffb300                         | #ffcc00                       | warning states                         |
+| danger        | #b3261e                         | #ff6259                       | error states, destructive actions      |
 
 ## Typography
 
@@ -36,7 +38,7 @@
 
 - Spacing scale (4px base): 4, 8, 12, 16, 20, 24, 28, 32px
 - Radius: sm 4px, md 8px, lg 12px
-- Shadow: sm `inset 0 0 0 2px var(--vp-c-divider)`, md `rgb(45, 129, 255) 0px 0px 6px 0px`
+- Shadow: sm `inset 0 0 0 2px var(--vp-c-divider)`, md `0 0 6px 0` teal glow (`color-mix(in srgb, #008573 55%, transparent)`)
 
 ## Motion
 
